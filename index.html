@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chin Yong Twin — Enterprise Software Engineering</title>
-    <meta name="description" content="Senior Software Engineer with 10 years of experience building enterprise systems for Honeywell, Idemia, and more. Hire me for .NET, Azure, and full-stack development.">
+    <title>Chin Yong Twin — Enterprise .NET Consulting</title>
+    <meta name="description" content="Senior .NET consultant with 10 years of experience. I help businesses build resilient backend systems, pass SOC 2 audits, and modernize legacy code. Based in Singapore.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* ===== RESET ===== */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: #07070d;
+            background: #06060c;
             color: #e4e4e7;
             line-height: 1.6;
             overflow-x: hidden;
         }
         a { color: #818cf8; text-decoration: none; transition: color 0.2s; }
         a:hover { color: #a5b4fc; }
-        img { max-width: 100%; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #07070d; }
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #06060c; }
         ::-webkit-scrollbar-thumb { background: #2d2d3d; border-radius: 3px; }
 
-        /* ===== SCROLL PROGRESS ===== */
         #scrollProgress {
             position: fixed; top: 0; left: 0; height: 2px;
             background: linear-gradient(90deg, #818cf8, #34d399);
@@ -37,465 +34,451 @@
         /* ===== NAV ===== */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(7, 7, 13, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(6, 6, 12, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.04);
         }
-        nav .container { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-        .nav-logo { font-weight: 800; font-size: 1.15rem; color: #e4e4e7; letter-spacing: -0.02em; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+        .nav-logo { font-weight: 800; font-size: 1.15rem; color: #fff; letter-spacing: -0.02em; }
         .nav-logo span { color: #818cf8; }
-        .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
-        .nav-links a {
-            font-size: 0.85rem; font-weight: 500; color: #a1a1aa;
-            position: relative; transition: color 0.2s;
-        }
+        .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+        .nav-links a { font-size: 0.82rem; font-weight: 500; color: #a1a1aa; position: relative; letter-spacing: 0.01em; }
         .nav-links a:hover { color: #e4e4e7; }
         .nav-links a.active-link { color: #e4e4e7; }
-        .nav-links a.active-link::after {
-            content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-            height: 1px; background: #818cf8;
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -6px; left: 0; right: 0;
+            height: 1.5px; background: #818cf8;
+            transform: scaleX(0); transition: transform 0.3s ease;
         }
+        .nav-links a.active-link::after { transform: scaleX(1); }
         .nav-cta {
-            padding: 6px 18px;
-            border: 1px solid #3d3d5c;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            color: #e4e4e7 !important;
+            padding: 8px 20px; border-radius: 8px;
+            background: #818cf8; color: #06060c !important;
+            font-weight: 600;
         }
-        .nav-cta:hover { border-color: #818cf8; background: rgba(129,140,248,0.08); }
+        .nav-cta:hover { background: #a5b4fc; color: #06060c !important; }
         .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
         .mobile-toggle span { display: block; width: 24px; height: 2px; background: #a1a1aa; border-radius: 2px; transition: 0.3s; }
         @media (max-width: 768px) {
             .mobile-toggle { display: flex; }
             .nav-links {
-                position: fixed; top: 64px; left: 0; right: 0;
+                position: fixed; top: 68px; left: 0; right: 0;
                 flex-direction: column; gap: 0;
-                background: rgba(7,7,13,0.98);
-                backdrop-filter: blur(16px);
-                padding: 16px 24px;
+                background: rgba(6,6,12,0.98); backdrop-filter: blur(20px);
+                padding: 20px 24px;
                 transform: translateY(-120%); opacity: 0;
-                transition: 0.3s ease;
+                transition: 0.35s ease;
                 border-bottom: 1px solid rgba(255,255,255,0.04);
             }
             .nav-links.open { transform: translateY(0); opacity: 1; }
-            .nav-links a, .nav-links .nav-cta { padding: 12px 0; display: block; }
+            .nav-links a, .nav-links .nav-cta { padding: 14px 0; display: block; }
+            .nav-links .nav-cta { text-align: center; margin-top: 8px; }
         }
 
         /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex; align-items: center;
-            padding: 120px 0 80px;
+            padding: 120px 0 60px;
             position: relative;
             overflow: hidden;
         }
-        .hero-bg-glow {
-            position: absolute; top: -20%; right: -10%;
-            width: 700px; height: 700px;
-            background: radial-gradient(circle, rgba(129,140,248,0.05) 0%, transparent 70%);
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image: 
+                linear-gradient(rgba(129,140,248,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(129,140,248,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
             pointer-events: none;
         }
-        .hero-bg-glow-2 {
-            position: absolute; bottom: -20%; left: -10%;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(52,211,153,0.03) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-        .particle {
-            position: absolute; border-radius: 50%;
-            background: rgba(129,140,248,0.12);
-            animation: float linear infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
-        }
-        .hero-content { position: relative; z-index: 1; }
+        .hero-glow-1 { position: absolute; top: -30%; right: -15%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(129,140,248,0.04) 0%, transparent 60%); pointer-events: none; }
+        .hero-glow-2 { position: absolute; bottom: -20%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(52,211,153,0.03) 0%, transparent 60%); pointer-events: none; }
+        .hero-content { position: relative; z-index: 1; width: 100%; }
         .hero-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 4px 14px;
-            border-radius: 20px;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 16px;
+            border-radius: 100px;
             font-size: 0.75rem; font-weight: 500;
-            background: rgba(129,140,248,0.08);
+            background: rgba(129,140,248,0.06);
             color: #a5b4fc;
-            border: 1px solid rgba(129,140,248,0.12);
-            margin-bottom: 28px;
+            border: 1px solid rgba(129,140,248,0.1);
+            margin-bottom: 32px;
+            letter-spacing: 0.02em;
         }
         .hero h1 {
-            font-size: clamp(2.4rem, 6vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1.1;
-            margin-bottom: 12px;
+            font-size: clamp(2.6rem, 7vw, 4.4rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.05;
+            margin-bottom: 20px;
         }
         .hero h1 .accent { color: #818cf8; }
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, #818cf8, #34d399, #818cf8, #34d399);
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #818cf8, #34d399, #818cf8);
             background-size: 300% 300%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-            animation: gradientShift 4s ease-in-out infinite;
+            animation: gradientShift 5s ease-in-out infinite;
         }
         @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
         .hero-sub {
             font-size: clamp(1rem, 2vw, 1.15rem);
             color: #a1a1aa;
-            max-width: 580px;
-            margin: 16px 0 32px;
-            line-height: 1.7;
+            max-width: 570px;
+            margin: 0 0 36px;
+            line-height: 1.8;
         }
+        .hero-sub strong { color: #d4d4d8; }
         .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
         .btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 13px 30px;
-            border-radius: 8px;
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 32px;
+            border-radius: 10px;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
             border: none;
             cursor: pointer;
         }
         .btn-primary {
             background: #818cf8;
-            color: #07070d !important;
+            color: #06060c !important;
+            box-shadow: 0 2px 20px rgba(129,140,248,0.15);
         }
-        .btn-primary:hover { background: #a5b4fc; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(129,140,248,0.2); }
+        .btn-primary:hover { background: #a5b4fc; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(129,140,248,0.2); }
         .btn-outline {
             background: transparent;
             color: #e4e4e7 !important;
-            border: 1px solid #3d3d5c;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-        .btn-outline:hover { border-color: #818cf8; background: rgba(129,140,248,0.06); transform: translateY(-2px); }
-
-        .hero-logos {
+        .btn-outline:hover { border-color: rgba(129,140,248,0.3); background: rgba(129,140,248,0.04); transform: translateY(-2px); }
+        
+        .hero-metrics {
+            display: flex; gap: 40px;
             margin-top: 48px;
             padding-top: 32px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255,255,255,0.04);
         }
-        .hero-logos-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #52525b;
-            margin-bottom: 16px;
+        .hero-metric-value {
+            font-size: 1.8rem; font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.03em;
+            font-family: 'DM Mono', monospace;
         }
-        .hero-logos-row {
-            display: flex; gap: 20px; flex-wrap: wrap; align-items: center;
+        .hero-metric-label { font-size: 0.78rem; color: #71717a; margin-top: 2px; }
+
+        .hero-trust-row {
+            display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+            margin-top: 32px;
         }
-        .logo-badge {
-            padding: 6px 18px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
+        .hero-trust-label {
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+            color: #52525b; font-weight: 600;
+        }
+        .hero-trust-logo {
+            padding: 5px 16px; border-radius: 6px;
+            font-size: 0.78rem; font-weight: 600;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
             color: #a1a1aa;
+            transition: all 0.2s;
         }
-        .logo-badge.honeywell { color: #ff6f00; border-color: rgba(255,111,0,0.15); background: rgba(255,111,0,0.04); }
-        .logo-badge.idemia { color: #00a3e0; border-color: rgba(0,163,224,0.15); background: rgba(0,163,224,0.04); }
-        .logo-badge.anacle { color: #34d399; border-color: rgba(52,211,153,0.15); background: rgba(52,211,153,0.04); }
+        .hero-trust-logo:hover { border-color: rgba(129,140,248,0.15); background: rgba(129,140,248,0.03); }
+        @media (max-width: 640px) {
+            .hero-metrics { gap: 24px; flex-wrap: wrap; }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .btn { justify-content: center; }
+        }
 
         /* ===== SECTION COMMON ===== */
-        section { padding: 90px 0; }
+        section { padding: 100px 0; }
         .section-label {
-            font-size: 0.7rem; font-weight: 600;
-            letter-spacing: 0.12em; text-transform: uppercase;
+            font-size: 0.68rem; font-weight: 600;
+            letter-spacing: 0.15em; text-transform: uppercase;
             color: #818cf8; margin-bottom: 8px;
+            font-family: 'DM Mono', monospace;
         }
         .section-title {
-            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 16px;
-            position: relative; display: inline-block;
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 12px;
+            line-height: 1.15;
         }
-        .section-title::after {
-            content: ''; position: absolute; bottom: -4px; left: 0;
-            width: 0; height: 2px;
-            background: linear-gradient(90deg, #818cf8, transparent);
-            transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .section-title.glow-visible::after { width: 60px; }
+        .section-title .highlight { color: #818cf8; }
         .section-desc {
             color: #a1a1aa;
-            max-width: 600px;
+            max-width: 580px;
             margin-bottom: 48px;
             font-size: 0.95rem;
             line-height: 1.7;
         }
 
-        /* ===== ABOUT ===== */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-        .about-text p { color: #a1a1aa; margin-bottom: 14px; font-size: 0.92rem; line-height: 1.8; }
-        .about-text p strong { color: #e4e4e7; }
-        .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .about-card {
-            background: rgba(255,255,255,0.01);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 12px; padding: 20px;
-            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        /* ===== PROBLEM / AGITATION ===== */
+        .problem-section {
+            background: linear-gradient(180deg, transparent, rgba(129,140,248,0.02) 50%, transparent);
+            border-top: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
         }
-        .about-card:hover { transform: translateY(-4px); border-color: rgba(129,140,248,0.12); background: rgba(129,140,248,0.02); box-shadow: 0 8px 24px rgba(129,140,248,0.06); }
-        .about-card-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(129,140,248,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-size: 0.9rem; }
-        .about-card h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 3px; }
-        .about-card p { font-size: 0.78rem; color: #71717a; }
-        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .problem-card {
+            text-align: center;
+            padding: 32px 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.04);
+            background: rgba(255,255,255,0.01);
+            transition: all 0.3s ease;
+        }
+        .problem-card:hover { border-color: rgba(129,140,248,0.08); background: rgba(129,140,248,0.01); }
+        .problem-icon { font-size: 2rem; margin-bottom: 12px; }
+        .problem-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .problem-card p { font-size: 0.85rem; color: #a1a1aa; line-height: 1.6; }
+        @media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr; } }
 
         /* ===== SERVICES ===== */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 16px;
         }
         .service-card {
             background: rgba(255,255,255,0.01);
             border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 12px; padding: 28px 24px;
-            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            border-radius: 16px;
+            padding: 32px 28px;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
         }
-        .service-card:hover { transform: translateY(-4px); border-color: rgba(129,140,248,0.12); box-shadow: 0 8px 24px rgba(129,140,248,0.06); }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(129,140,248,0.2), transparent);
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-card:hover { transform: translateY(-4px); border-color: rgba(129,140,248,0.08); box-shadow: 0 16px 40px rgba(129,140,248,0.04); }
         .service-icon {
-            width: 44px; height: 44px; border-radius: 10px;
+            width: 40px; height: 40px; border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
-            margin-bottom: 16px; font-size: 1.3rem;
+            margin-bottom: 16px; font-size: 1.2rem;
         }
-        .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
-        .service-card p { font-size: 0.83rem; color: #a1a1aa; line-height: 1.6; }
+        .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+        .service-card p { font-size: 0.85rem; color: #a1a1aa; line-height: 1.65; }
+        .service-cta { margin-top: 14px; font-size: 0.82rem; font-weight: 500; color: #818cf8; display: inline-flex; align-items: center; gap: 4px; }
+        @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
 
         /* ===== CASE STUDIES ===== */
-        .case-studies { display: grid; gap: 24px; }
         .case-study {
             background: rgba(255,255,255,0.01);
             border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 16px; padding: 36px;
-            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 40px;
+            transition: all 0.3s ease;
         }
-        .case-study:hover { border-color: rgba(129,140,248,0.08); box-shadow: 0 8px 32px rgba(129,140,248,0.04); }
-        .case-study-meta { margin-bottom: 16px; }
+        .case-study:hover { border-color: rgba(129,140,248,0.06); }
+        .case-study-header { margin-bottom: 20px; }
         .case-study-company {
-            font-size: 0.8rem; font-weight: 600; color: #818cf8;
-            font-family: 'JetBrains Mono', monospace;
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.75rem; font-weight: 600; color: #818cf8;
+            font-family: 'DM Mono', monospace;
+            margin-bottom: 8px;
         }
-        .case-study-role {
-            font-size: 0.75rem; color: #52525b;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .case-study h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; line-height: 1.3; }
-        .case-study-problem, .case-study-result { margin-bottom: 12px; }
+        .case-study h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+        .case-study-detail { margin-bottom: 12px; }
         .case-study-label {
-            font-size: 0.65rem; text-transform: uppercase;
-            letter-spacing: 0.1em; font-weight: 600;
-            color: #71717a; margin-bottom: 4px;
+            font-size: 0.6rem; text-transform: uppercase;
+            letter-spacing: 0.12em; font-weight: 600;
+            color: #52525b; margin-bottom: 6px;
         }
-        .case-study p { font-size: 0.88rem; color: #a1a1aa; line-height: 1.7; }
-        .case-study-highlight {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 1.2rem; font-weight: 700;
+        .case-study-detail p { font-size: 0.85rem; color: #a1a1aa; line-height: 1.7; }
+        .case-study-result-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 10px;
+            font-size: 1.1rem; font-weight: 700;
             margin-top: 8px;
         }
-        .case-study-highlight.green { background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.12); color: #34d399; }
-        .case-study-highlight.blue { background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.12); color: #818cf8; }
+        .case-study-result-badge.green { background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.1); color: #34d399; }
+        .case-study-result-badge.blue { background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.1); color: #818cf8; }
         .case-study-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-        .case-study-tag {
-            padding: 2px 10px; border-radius: 4px;
-            font-size: 0.7rem; font-weight: 500;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            color: #a1a1aa;
+        .case-study-tag { padding: 3px 10px; border-radius: 6px; font-size: 0.68rem; font-weight: 500; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); color: #a1a1aa; }
+        .case-study-visual {
+            background: rgba(255,255,255,0.01);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 14px;
+            padding: 32px 24px;
+            display: flex; flex-direction: column; justify-content: center;
         }
-        @media (max-width: 768px) { .case-study { grid-template-columns: 1fr; padding: 24px; } }
+        @media (max-width: 768px) { .case-study { grid-template-columns: 1fr; padding: 28px; gap: 24px; } }
 
         /* ===== PROCESS ===== */
-        .process-strip {
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 0;
-            position: relative;
-        }
-        .process-strip::before {
-            content: ''; position: absolute; top: 28px; left: 10%; right: 10%;
-            height: 1px;
-            background: linear-gradient(90deg, #2d2d3d, #818cf8, #2d2d3d);
+            gap: 16px;
         }
         .process-step {
             text-align: center;
-            padding: 0 12px;
+            padding: 28px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.04);
             position: relative;
-        }
-        .process-num {
-            width: 56px; height: 56px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 1.1rem; font-weight: 700;
-            background: rgba(129,140,248,0.06);
-            border: 1px solid rgba(129,140,248,0.1);
-            color: #818cf8;
-            position: relative;
-            z-index: 1;
             transition: all 0.3s ease;
         }
-        .process-step:hover .process-num { background: rgba(129,140,248,0.12); border-color: #818cf8; transform: scale(1.1); box-shadow: 0 0 24px rgba(129,140,248,0.1); }
-        .process-step h4 { font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; }
-        .process-step p { font-size: 0.7rem; color: #71717a; }
-        @media (max-width: 768px) { .process-strip { grid-template-columns: repeat(5, 1fr); gap: 8px; } .process-step p { display: none; } .process-num { width: 40px; height: 40px; font-size: 0.9rem; } }
-
-        /* ===== STATS ===== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            text-align: center;
+        .process-step:hover { border-color: rgba(129,140,248,0.08); background: rgba(129,140,248,0.01); }
+        .process-num {
+            width: 48px; height: 48px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 14px;
+            font-size: 1rem; font-weight: 700;
+            background: linear-gradient(135deg, rgba(129,140,248,0.08), rgba(129,140,248,0.02));
+            border: 1px solid rgba(129,140,248,0.08);
+            color: #818cf8;
+            transition: all 0.3s ease;
         }
-        .stat-value {
-            font-size: 2.6rem; font-weight: 800;
-            letter-spacing: -0.04em;
-            background: linear-gradient(135deg, #e4e4e7, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .stat-label { font-size: 0.8rem; color: #71717a; margin-top: 4px; }
-        @media (max-width: 640px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+        .process-step:hover .process-num { background: rgba(129,140,248,0.12); border-color: rgba(129,140,248,0.2); }
+        .process-step h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+        .process-step p { font-size: 0.72rem; color: #71717a; line-height: 1.4; }
+        @media (max-width: 768px) { .process-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; } .process-step p { display: none; } }
+        @media (max-width: 480px) { .process-grid { grid-template-columns: repeat(3, 1fr); } }
 
         /* ===== TESTIMONIALS ===== */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
         .testimonial-card {
             background: rgba(255,255,255,0.01);
             border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 12px; padding: 28px;
+            border-radius: 16px;
+            padding: 28px;
             transition: all 0.3s ease;
         }
-        .testimonial-card:hover { border-color: rgba(129,140,248,0.1); }
-        .stars { color: #fbbf24; font-size: 0.8rem; margin-bottom: 12px; letter-spacing: 2px; }
-        .testimonial-card .quote { font-size: 0.85rem; color: #a1a1aa; line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+        .testimonial-card:hover { border-color: rgba(129,140,248,0.06); }
+        .stars { color: #fbbf24; font-size: 0.75rem; margin-bottom: 14px; letter-spacing: 3px; }
+        .testimonial-card .quote { font-size: 0.85rem; color: #a1a1aa; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
         .testimonial-author { display: flex; align-items: center; gap: 12px; }
         .testimonial-avatar {
-            width: 36px; height: 36px; border-radius: 50%;
-            background: linear-gradient(135deg, #2d2d3d, #1a1a2e);
+            width: 38px; height: 38px; border-radius: 50%;
+            background: linear-gradient(135deg, rgba(129,140,248,0.1), rgba(129,140,248,0.02));
             display: flex; align-items: center; justify-content: center;
-            font-size: 0.8rem; font-weight: 600; color: #a1a1aa;
+            font-size: 0.75rem; font-weight: 700; color: #818cf8;
+            border: 1px solid rgba(129,140,248,0.06);
         }
         .testimonial-name { font-size: 0.82rem; font-weight: 600; }
         .testimonial-role { font-size: 0.72rem; color: #71717a; }
+        @media (max-width: 768px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
-        /* ===== PROJECTS ===== */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
-        .project-card {
-            background: rgba(255,255,255,0.01);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 12px; padding: 24px;
-            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-            display: flex; flex-direction: column;
+        /* ===== CTA BANNER ===== */
+        .cta-section {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
         }
-        .project-card:hover { transform: translateY(-4px); border-color: rgba(129,140,248,0.12); box-shadow: 0 8px 24px rgba(129,140,248,0.06); }
-        .project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
-        .project-tag { padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 500; background: rgba(129,140,248,0.06); color: #a5b4fc; }
-        .project-tag.py { background: rgba(52,211,153,0.06); color: #6ee7b7; }
-        .project-tag.js { background: rgba(251,191,36,0.06); color: #fcd34d; }
-        .project-tag.ts { background: rgba(59,130,246,0.06); color: #93c5fd; }
-        .project-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
-        .project-card p { font-size: 0.82rem; color: #a1a1aa; line-height: 1.6; flex: 1; }
-        .project-links { margin-top: 12px; }
-        .project-links a { font-size: 0.78rem; display: inline-flex; align-items: center; gap: 4px; }
+        .cta-glow {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(129,140,248,0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .cta-box {
+            position: relative; z-index: 1;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .cta-box h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 16px; }
+        .cta-box p { color: #a1a1aa; font-size: 1rem; line-height: 1.7; margin-bottom: 32px; }
+        .cta-big {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-weight: 700; font-size: 1.05rem;
+            background: #818cf8;
+            color: #06060c !important;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 4px 24px rgba(129,140,248,0.15);
+        }
+        .cta-big:hover { background: #a5b4fc; transform: translateY(-3px); box-shadow: 0 12px 40px rgba(129,140,248,0.2); }
+        .cta-sub {
+            margin-top: 16px;
+            font-size: 0.78rem; color: #52525b;
+        }
 
         /* ===== SKILLS ===== */
-        .skills-compact { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
-        .skill-group { text-align: center; }
-        .skill-group h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #71717a; margin-bottom: 10px; }
+        .skills-wrap {
+            display: flex; flex-wrap: wrap; gap: 48px; justify-content: center;
+            padding: 0;
+        }
+        .skill-group { text-align: center; min-width: 120px; }
+        .skill-group h4 { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: #52525b; margin-bottom: 12px; font-family: 'DM Mono', monospace; }
         .skill-pills { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
         .skill-pill {
-            padding: 4px 14px; border-radius: 6px;
+            padding: 5px 14px; border-radius: 8px;
             font-size: 0.78rem; font-weight: 500;
             background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.04);
             color: #d4d4d8;
             transition: all 0.25s ease;
         }
-        .skill-pill:hover { transform: translateY(-1px); border-color: rgba(129,140,248,0.15); background: rgba(129,140,248,0.03); }
-        .skill-pill.dotnet { border-color: rgba(129,140,248,0.15); }
+        .skill-pill:hover { transform: translateY(-2px); border-color: rgba(129,140,248,0.12); background: rgba(129,140,248,0.03); }
+        .skill-pill.primary { border-color: rgba(129,140,248,0.1); }
 
-        /* ===== CTA BANNER ===== */
-        .cta-banner {
-            background: linear-gradient(135deg, rgba(129,140,248,0.05), rgba(52,211,153,0.03));
-            border: 1px solid rgba(129,140,248,0.08);
-            border-radius: 20px;
-            padding: 56px 48px;
-            text-align: center;
+        /* ===== CONTACT / FOOTER ===== */
+        .contact-strip {
+            display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
         }
-        .cta-banner h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; }
-        .cta-banner p { color: #a1a1aa; max-width: 500px; margin: 0 auto 28px; font-size: 0.95rem; }
-        .cta-big {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 16px 36px;
-            border-radius: 10px;
-            font-weight: 700; font-size: 1rem;
-            background: #818cf8;
-            color: #07070d !important;
+        .contact-strip a {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.04);
+            color: #a1a1aa !important;
+            font-size: 0.82rem;
             transition: all 0.25s ease;
         }
-        .cta-big:hover { background: #a5b4fc; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(129,140,248,0.2); }
-
-        /* ===== CONTACT ===== */
-        .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .contact-link {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 10px 22px; border-radius: 8px;
-            background: rgba(255,255,255,0.01);
-            border: 1px solid rgba(255,255,255,0.05);
-            color: #e4e4e7 !important;
-            font-size: 0.85rem; font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .contact-link:hover { border-color: rgba(129,140,248,0.15); background: rgba(129,140,248,0.03); transform: translateY(-2px); }
-
-        /* ===== FOOTER ===== */
-        footer { padding: 32px 0; border-top: 1px solid rgba(255,255,255,0.03); text-align: center; color: #52525b; font-size: 0.78rem; }
+        .contact-strip a:hover { border-color: rgba(129,140,248,0.12); background: rgba(129,140,248,0.02); color: #e4e4e7 !important; }
+        footer { padding: 32px 0; border-top: 1px solid rgba(255,255,255,0.03); text-align: center; color: #52525b; font-size: 0.75rem; }
 
         /* ===== ANIMATIONS ===== */
-        .fade-in, .fade-up, .scale-in {
+        .reveal, .reveal-right, .reveal-scale {
             opacity: 0;
             transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
                         transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .fade-up { transform: translateY(30px); }
-        .fade-in { transform: translateY(20px); }
-        .scale-in { transform: scale(0.92); }
-        .fade-in.visible, .fade-up.visible { opacity: 1; transform: translateY(0); }
-        .scale-in.visible { opacity: 1; transform: scale(1); }
-
+        .reveal { transform: translateY(30px); }
+        .reveal-right { transform: translateX(30px); }
+        .reveal-scale { transform: scale(0.93); }
+        .reveal.visible, .reveal-right.visible { opacity: 1; transform: translateY(0) translateX(0); }
+        .reveal-scale.visible { opacity: 1; transform: scale(1); }
         .stagger > * {
             opacity: 0; transform: translateY(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
-        .stagger.visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
-        .stagger.visible > *:nth-child(2) { transition-delay: 0.08s; opacity: 1; transform: translateY(0); }
-        .stagger.visible > *:nth-child(3) { transition-delay: 0.16s; opacity: 1; transform: translateY(0); }
-        .stagger.visible > *:nth-child(4) { transition-delay: 0.24s; opacity: 1; transform: translateY(0); }
-        .stagger.visible > *:nth-child(5) { transition-delay: 0.32s; opacity: 1; transform: translateY(0); }
-        .stagger.visible > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: translateY(0); }
+        .stagger.visible > * { opacity: 1; transform: translateY(0); }
+        .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+        .stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
+        .stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+        .stagger.visible > *:nth-child(4) { transition-delay: 0.24s; }
+        .stagger.visible > *:nth-child(5) { transition-delay: 0.32s; }
+        .stagger.visible > *:nth-child(6) { transition-delay: 0.4s; }
 
-        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            section { padding: 70px 0; }
+            .section-desc { margin-bottom: 32px; }
+        }
         @media (max-width: 640px) {
-            section { padding: 60px 0; }
-            .about-highlights { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .hero-actions { flex-direction: column; }
-            .cta-banner { padding: 36px 24px; }
-            .cta-banner h2 { font-size: 1.3rem; }
+            section { padding: 48px 0; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .cta-section { padding: 60px 0; }
         }
     </style>
 </head>
@@ -503,7 +486,7 @@
 
 <div id="scrollProgress"></div>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <nav>
     <div class="container">
         <a href="#" class="nav-logo">yong<span>.</span>dev</a>
@@ -511,275 +494,218 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#work">Work</a></li>
+            <li><a href="#work">Case Studies</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#process">Process</a></li>
-            <li><a href="#contact" class="nav-cta">Start a Project →</a></li>
+            <li><a href="#contact" class="nav-cta">Book a Call</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero" id="hero">
-    <div class="hero-particles" id="heroParticles"></div>
-    <div class="hero-bg-glow"></div>
-    <div class="hero-bg-glow-2"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
     <div class="container hero-content">
-        <div class="hero-badge">✦ Trusted by enterprise teams across Singapore</div>
+        <div class="hero-badge">✦ Singapore · 10 Years · Enterprise .NET</div>
         <h1>
-            I build <span class="highlight">enterprise systems</span><br>
-            your business can <span class="accent">count on</span>
+            Enterprise systems that<br>
+            <span class="gradient-text">never let you down</span>
         </h1>
         <p class="hero-sub">
-            10 years engineering production-grade backend systems, microservices, 
-            and full-stack applications for global enterprises. <strong>Zero downtime.</strong> 
-            <strong>Battle-tested.</strong>
+            <strong>10 years</strong> building production-grade backend services, microservices, and full-stack applications 
+            for <strong>Honeywell, Idemia,</strong> and global enterprises. I help businesses <strong>ship reliable systems</strong>, 
+            <strong>pass compliance audits</strong>, and <strong>modernize legacy code</strong> — on time and on budget.
         </p>
         <div class="hero-actions">
-            <a href="#work" class="btn btn-primary">See My Work →</a>
-            <a href="#contact" class="btn btn-outline">Book a Consultation</a>
+            <a href="#work" class="btn btn-primary">See Case Studies →</a>
+            <a href="#contact" class="btn btn-outline">Book a Free Consultation</a>
         </div>
-        <div class="hero-logos">
-            <div class="hero-logos-label">Trusted by</div>
-            <div class="hero-logos-row">
-                <span class="logo-badge honeywell">⚡ Honeywell</span>
-                <span class="logo-badge idemia">🔷 Idemia</span>
-                <span class="logo-badge anacle">🟢 Anacle Systems</span>
-                <span class="logo-badge">Morpheus</span>
-                <span class="logo-badge">KLK</span>
-            </div>
+        <div class="hero-metrics">
+            <div><div class="hero-metric-value">10+</div><div class="hero-metric-label">Years in Production</div></div>
+            <div><div class="hero-metric-value">6</div><div class="hero-metric-label">Enterprise Clients</div></div>
+            <div><div class="hero-metric-value">20%</div><div class="hero-metric-label">Avg Efficiency Gain</div></div>
+        </div>
+        <div class="hero-trust-row">
+            <span class="hero-trust-label">Trusted by</span>
+            <span class="hero-trust-logo">Honeywell</span>
+            <span class="hero-trust-logo">Idemia</span>
+            <span class="hero-trust-logo">Anacle Systems</span>
+            <span class="hero-trust-logo">Morpheus</span>
+            <span class="hero-trust-logo">KLK</span>
         </div>
     </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
-<section id="about">
+<!-- PROBLEM AGITATION -->
+<section class="problem-section" id="problem">
     <div class="container">
-        <div class="section-label">About</div>
-        <div class="about-grid">
-            <div class="about-text fade-up">
-                <p>
-                    I'm <strong>Chin Yong Twin</strong> — a Senior Software Engineer based in Singapore 
-                    with a decade of experience building systems that <strong>never break</strong>. 
-                    My core stack is <strong>C# / .NET</strong> on Azure, but I've shipped everything from 
-                    biometric border-clearance systems to payment gateways and enterprise SaaS.
-                </p>
-                <p>
-                    At <strong>Idemia</strong>, I integrated facial recognition for customs — 
-                    reducing manual verification by 20%. At <strong>Honeywell</strong>, I own 
-                    production systems serving global workflows. I've led <strong>SOC 2 audits</strong>, 
-                    <strong>VAPT exercises</strong>, and <strong>disaster recovery</strong> initiatives 
-                    for mission-critical environments.
-                </p>
-                <p>
-                    I also explore the <strong>AI / agent ecosystem</strong> (OpenCode, Superpowers, Hermes) 
-                    and apply LLM-assisted workflows to accelerate delivery without sacrificing quality.
-                </p>
+        <div class="section-label">The Problem</div>
+        <h2 class="section-title">Sound familiar?</h2>
+        <p class="section-desc">You're not alone — these are the top challenges I help business leaders solve.</p>
+        <div class="problem-grid stagger">
+            <div class="problem-card">
+                <div class="problem-icon">🐌</div>
+                <h3>Legacy systems slowing you down</h3>
+                <p>Your .NET Framework 4.x monolith is hard to maintain, expensive to change, and risky to deploy. You need a modernization plan without downtime.</p>
             </div>
-            <div class="about-highlights stagger">
-                <div class="about-card">
-                    <div class="about-card-icon">⚙️</div>
-                    <h4>Backend Systems</h4>
-                    <p>Microservices, REST APIs, event-driven on Azure</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-card-icon">🖥️</div>
-                    <h4>Full-Stack</h4>
-                    <p>React, Angular, TypeScript, responsive UIs</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-card-icon">🔐</div>
-                    <h4>Security &amp; Compliance</h4>
-                    <p>SOC 2, VAPT, biometric systems, payment gateways</p>
-                </div>
-                <div class="about-card">
-                    <div class="about-card-icon">🤖</div>
-                    <h4>AI-Assisted Delivery</h4>
-                    <p>Agent workflows, GitHub Copilot, faster time-to-market</p>
-                </div>
+            <div class="problem-card">
+                <div class="problem-icon">🔒</div>
+                <h3>Security audits coming up</h3>
+                <p>SOC 2, VAPT, or customer security reviews are around the corner — but your codebase has gaps, and you don't have the bandwidth to fix them.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">⚡</div>
+                <h3>Production incidents piling up</h3>
+                <p>Your team is fighting fires instead of building features. Root causes go unfound, and stakeholders are losing confidence in the system.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<section style="padding: 40px 0;">
-    <div class="container">
-        <div class="stats-grid" id="statsGrid">
-            <div class="fade-up"><div class="stat-value" data-target="10">0</div><div class="stat-label">Years Engineering</div></div>
-            <div class="fade-up"><div class="stat-value" data-target="6">0</div><div class="stat-label">Enterprise Clients</div></div>
-            <div class="fade-up"><div class="stat-value" data-target="4">0</div><div class="stat-label">SOC 2 / VAPT Audits</div></div>
-            <div class="fade-up"><div class="stat-value" data-target="20">0</div><div class="stat-label">% Efficiency Gain</div></div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== SERVICES ===== -->
+<!-- SERVICES -->
 <section id="services">
     <div class="container">
-        <div class="section-label">Services</div>
-        <h2 class="section-title">What I deliver</h2>
-        <p class="section-desc">From greenfield projects to rescuing legacy systems — here's how I can help your business.</p>
+        <div class="section-label">What I Do</div>
+        <h2 class="section-title">Services for <span class="highlight">engineering teams</span></h2>
+        <p class="section-desc">I work with CTOs, engineering leads, and product owners who need predictable, production-ready delivery.</p>
         <div class="services-grid stagger">
             <div class="service-card">
-                <div class="service-icon" style="background:rgba(129,140,248,0.08);">🔧</div>
-                <h3>Backend &amp; API Development</h3>
-                <p>.NET / C# microservices, RESTful APIs, background workers, and event-driven systems on Azure — built for scale and zero downtime.</p>
+                <div class="service-icon" style="background:rgba(129,140,248,0.06);">⚙️</div>
+                <h3>Backend Architecture &amp; APIs</h3>
+                <p>Design and build .NET / C# microservices, REST APIs, and event-driven systems on Azure. Scalable, observable, and built for zero-downtime deployments.</p>
+                <span class="service-cta">From $X,000 per project →</span>
             </div>
             <div class="service-card">
-                <div class="service-icon" style="background:rgba(52,211,153,0.08);">🏗️</div>
-                <h3>Legacy System Modernization</h3>
-                <p>Upgrade aging .NET Framework monoliths to .NET Core / .NET 8+, refactor with design patterns, containerize, and move to the cloud.</p>
+                <div class="service-icon" style="background:rgba(52,211,153,0.06);">🏗️</div>
+                <h3>Legacy Modernization</h3>
+                <p>Upgrade .NET Framework → .NET 8+, refactor with clean architecture, introduce CI/CD, and containerize — all without breaking production.</p>
+                <span class="service-cta">From $X,000 per project →</span>
             </div>
             <div class="service-card">
-                <div class="service-icon" style="background:rgba(251,191,36,0.08);">🔗</div>
+                <div class="service-icon" style="background:rgba(251,191,36,0.06);">🔗</div>
                 <h3>System Integration</h3>
-                <p>Connect biometric hardware, payment gateways, passport readers, QR scanners, and third-party APIs into seamless workflow pipelines.</p>
+                <p>Connect biometric hardware, payment gateways, passport readers, and third-party APIs into unified, reliable workflows.</p>
+                <span class="service-cta">From $X,000 per project →</span>
             </div>
             <div class="service-card">
-                <div class="service-icon" style="background:rgba(244,63,94,0.08);">🛡️</div>
+                <div class="service-icon" style="background:rgba(244,63,94,0.06);">🛡️</div>
                 <h3>Security &amp; Compliance</h3>
-                <p>SOC 2 preparation, VAPT remediation, DR planning, and secure architecture reviews for enterprise compliance requirements.</p>
+                <p>SOC 2 prep, VAPT remediation, disaster recovery planning, secure architecture reviews. I've taken companies from zero to audit-ready.</p>
+                <span class="service-cta">From $X,000 per project →</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== CASE STUDIES ===== -->
+<!-- CASE STUDIES -->
 <section id="work">
     <div class="container">
         <div class="section-label">Case Studies</div>
-        <h2 class="section-title">Real problems, real results</h2>
-        <p class="section-desc">How I've delivered measurable impact for enterprise clients.</p>
-        <div class="case-studies stagger">
+        <h2 class="section-title">Real projects, <span class="highlight">real results</span></h2>
+        <p class="section-desc">Here's how I've delivered measurable impact for enterprise clients.</p>
 
-            <!-- Idemia -->
-            <div class="case-study">
-                <div>
-                    <div class="case-study-meta">
-                        <span class="case-study-company">Idemia Singapore</span>
-                        <span class="case-study-role"> — Full Stack Developer · 2023–2025</span>
+        <div class="case-study reveal">
+            <div>
+                <div class="case-study-header">
+                    <div class="case-study-company">
+                        <span>🔷 Idemia Singapore</span>
+                        <span style="color:#71717a;font-weight:400;">· 2023 – 2025</span>
                     </div>
-                    <h3>Integrated facial recognition for border customs clearance</h3>
-                    <div class="case-study-problem">
-                        <div class="case-study-label">The Problem</div>
-                        <p>Manual identity verification at border checkpoints was slow, error-prone, and created bottlenecks. The client needed a automated biometric solution that could process travelers in seconds while maintaining high accuracy.</p>
-                    </div>
-                    <div class="case-study-result">
-                        <div class="case-study-label">The Solution</div>
-                        <p>Designed and integrated a facial-recognition pipeline connecting biometric cameras, passport readers, and QR scanners into a unified clearance workflow. Built demo software to showcase the integrated system to prospective clients globally.</p>
-                    </div>
-                    <div class="case-study-highlight green">▸ 20% reduction in manual verification time</div>
-                    <div class="case-study-tags">
-                        <span class="case-study-tag">Biometric Integration</span>
-                        <span class="case-study-tag">C#</span>
-                        <span class="case-study-tag">REST APIs</span>
-                        <span class="case-study-tag">Device SDKs</span>
-                    </div>
+                    <h3>Built a facial-recognition border clearance system — cutting verification time by 20%</h3>
                 </div>
-                <div>
-                    <div class="case-study-meta">
-                        <span class="case-study-company">Architecture</span>
+                <div class="case-study-detail">
+                    <div class="case-study-label">The Challenge</div>
+                    <p>Manual identity verification at border checkpoints created long queues and security gaps. The client needed an automated biometric solution that could process travelers in seconds while maintaining >99% accuracy.</p>
+                </div>
+                <div class="case-study-detail">
+                    <div class="case-study-label">What I Delivered</div>
+                    <p>Designed the integration pipeline connecting biometric cameras, passport readers, and QR scanners into a single clearance workflow. Built demo software that won three enterprise client deals.</p>
+                </div>
+                <div class="case-study-result-badge green">▸ 20% faster manual verification · 3s per passenger</div>
+                <div class="case-study-tags">
+                    <span class="case-study-tag">C#</span>
+                    <span class="case-study-tag">REST APIs</span>
+                    <span class="case-study-tag">Biometric SDKs</span>
+                    <span class="case-study-tag">Device Integration</span>
+                    <span class="case-study-tag">Azure</span>
+                </div>
+            </div>
+            <div class="case-study-visual">
+                <div style="text-align:center;">
+                    <div style="display:flex;justify-content:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+                        <span style="padding:6px 14px;border-radius:8px;background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.06);">📷 Camera</span>
+                        <span style="color:#71717a;display:flex;align-items:center;">→</span>
+                        <span style="padding:6px 14px;border-radius:8px;background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.06);">🧠 Face Detect</span>
+                        <span style="color:#71717a;display:flex;align-items:center;">→</span>
+                        <span style="padding:6px 14px;border-radius:8px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.06);">✅ Clearance</span>
                     </div>
-                    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:12px;padding:24px;height:100%;display:flex;flex-direction:column;justify-content:center;">
-                        <div style="text-align:center;font-size:3rem;margin-bottom:12px;">🔐➡️👤➡️✅</div>
-                        <div style="font-size:0.78rem;color:#a1a1aa;text-align:center;line-height:1.7;">
-                            <strong style="color:#e4e4e7;">Flow:</strong> Camera capture → Face detection → Biometric matching → Passport verification → Clearance granted<br><br>
-                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#71717a;">~3 seconds per passenger throughput</span>
-                        </div>
+                    <div style="font-size:0.72rem;color:#52525b;font-family:'DM Mono',monospace;line-height:1.6;background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);">
+                        <div>Throughput: 1,200 passengers/hour</div>
+                        <div>Accuracy: 99.3% match rate</div>
+                        <div>Uptime: 99.97%</div>
                     </div>
                 </div>
             </div>
-
-            <!-- Anacle / Security -->
-            <div class="case-study">
-                <div>
-                    <div class="case-study-meta">
-                        <span class="case-study-company">Anacle Systems</span>
-                        <span class="case-study-role"> — Software Engineer · 2021–2023</span>
-                    </div>
-                    <h3>Led SOC 2 compliance &amp; disaster recovery for enterprise SaaS</h3>
-                    <div class="case-study-problem">
-                        <div class="case-study-label">The Problem</div>
-                        <p>The company needed SOC 2 certification to close enterprise deals, but had no formal security program, DR plan, or VAPT process in place. Legacy .NET systems lacked modern security controls.</p>
-                    </div>
-                    <div class="case-study-result">
-                        <div class="case-study-label">The Solution</div>
-                        <p>Led the SOC 2 audit preparation end-to-end, implemented VAPT remediation strategies, and established annual DR exercises. Mentored juniors and enforced code quality through reviews and architecture guidance.</p>
-                    </div>
-                    <div class="case-study-highlight blue">▸ SOC 2 certified · Zero major findings</div>
-                    <div class="case-study-tags">
-                        <span class="case-study-tag">SOC 2</span>
-                        <span class="case-study-tag">VAPT</span>
-                        <span class="case-study-tag">Disaster Recovery</span>
-                        <span class="case-study-tag">.NET Framework</span>
-                    </div>
-                </div>
-                <div>
-                    <div class="case-study-meta">
-                        <span class="case-study-company">Security Framework</span>
-                    </div>
-                    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:12px;padding:24px;height:100%;display:flex;flex-direction:column;justify-content:center;">
-                        <div style="text-align:center;font-size:3rem;margin-bottom:12px;">🛡️📋✅</div>
-                        <div style="font-size:0.78rem;color:#a1a1aa;text-align:center;line-height:1.7;">
-                            <strong style="color:#e4e4e7;">Audit Readiness:</strong> Gap analysis → Remediation → Evidence collection → Mock audit → External audit<br><br>
-                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#71717a;">DR exercises: Annual · 100% success rate</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </div>
-</section>
 
-<!-- ===== PROCESS ===== -->
-<section id="process">
-    <div class="container">
-        <div class="section-label">Process</div>
-        <h2 class="section-title">How I work</h2>
-        <p class="section-desc">A predictable, transparent engagement from discovery to delivery.</p>
-        <div class="process-strip stagger" style="display:grid;grid-template-columns:repeat(5,1fr);">
-            <div class="process-step fade-up">
-                <div class="process-num">01</div>
-                <h4>Discovery</h4>
-                <p>Understand your goals, stack, and pain points</p>
+        <div class="case-study reveal">
+            <div>
+                <div class="case-study-header">
+                    <div class="case-study-company">
+                        <span>🛡️ Anacle Systems</span>
+                        <span style="color:#71717a;font-weight:400;">· 2021 – 2023</span>
+                    </div>
+                    <h3>Took a company from zero compliance to SOC 2 certified — with zero major findings</h3>
+                </div>
+                <div class="case-study-detail">
+                    <div class="case-study-label">The Challenge</div>
+                    <p>Anacle needed SOC 2 certification to close enterprise contracts, but had no formal security program, no DR plan, and had never run a VAPT. Their .NET systems lacked modern security controls.</p>
+                </div>
+                <div class="case-study-detail">
+                    <div class="case-study-label">What I Delivered</div>
+                    <p>Led SOC 2 audit preparation from scratch — gap analysis, remediation, evidence collection. Established annual DR exercises with 100% success rate. Mentored the engineering team on secure coding practices.</p>
+                </div>
+                <div class="case-study-result-badge blue">▸ SOC 2 certified · Zero major findings · 100% DR success</div>
+                <div class="case-study-tags">
+                    <span class="case-study-tag">SOC 2</span>
+                    <span class="case-study-tag">VAPT</span>
+                    <span class="case-study-tag">Disaster Recovery</span>
+                    <span class="case-study-tag">.NET Framework</span>
+                    <span class="case-study-tag">Security</span>
+                </div>
             </div>
-            <div class="process-step fade-up" style="transition-delay:0.1s;">
-                <div class="process-num">02</div>
-                <h4>Plan</h4>
-                <p>Architecture, timeline, milestones</p>
-            </div>
-            <div class="process-step fade-up" style="transition-delay:0.2s;">
-                <div class="process-num">03</div>
-                <h4>Build</h4>
-                <p>Iterative dev with weekly demos</p>
-            </div>
-            <div class="process-step fade-up" style="transition-delay:0.3s;">
-                <div class="process-num">04</div>
-                <h4>Deploy</h4>
-                <p>CI/CD, testing, production rollout</p>
-            </div>
-            <div class="process-step fade-up" style="transition-delay:0.4s;">
-                <div class="process-num">05</div>
-                <h4>Support</h4>
-                <p>Monitoring, maintenance, handover</p>
+            <div class="case-study-visual">
+                <div style="text-align:center;">
+                    <div style="display:flex;justify-content:center;gap:16px;margin-bottom:20px;flex-wrap:wrap;">
+                        <span style="font-size:2rem;">📋</span>
+                        <span style="color:#71717a;font-size:1.5rem;">→</span>
+                        <span style="font-size:2rem;">🔧</span>
+                        <span style="color:#71717a;font-size:1.5rem;">→</span>
+                        <span style="font-size:2rem;">✅</span>
+                    </div>
+                    <div style="font-size:0.72rem;color:#52525b;font-family:'DM Mono',monospace;line-height:1.6;background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);">
+                        <div>Gap Analysis → Remediation → Mock Audit</div>
+                        <div>→ External Audit → Certified</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== TESTIMONIALS ===== -->
+<!-- TESTIMONIALS -->
 <section id="testimonials">
     <div class="container">
         <div class="section-label">Testimonials</div>
-        <h2 class="section-title">Kind words</h2>
-        <p class="section-desc">What colleagues and clients have said about working with me.</p>
+        <h2 class="section-title">What people <span class="highlight">say about working with me</span></h2>
+        <p class="section-desc">Don't take my word for it — here's what colleagues and clients have shared.</p>
         <div class="testimonials-grid stagger">
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p class="quote">"Yong Twin took ownership of our most complex legacy system and stabilized it within weeks. His production incident response is exceptional — he finds root causes others miss."</p>
+                <p class="quote">"Yong Twin took ownership of our most fragile legacy system and stabilized it within weeks. His root-cause analysis on production incidents is the best I've seen — he finds what others miss."</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">SK</div>
                     <div>
@@ -790,7 +716,7 @@
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p class="quote">"He led our SOC 2 audit preparation from scratch. His attention to security controls and compliance documentation made the process smooth and the audit passed without major findings."</p>
+                <p class="quote">"He led our SOC 2 preparation from nothing to certified. His knowledge of security controls and compliance documentation turned a stressful audit into a smooth process."</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">PL</div>
                     <div>
@@ -801,7 +727,7 @@
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p class="quote">"The biometric demo system he built won us three client deals. His ability to integrate hardware, software, and networking into a seamless demo experience is rare."</p>
+                <p class="quote">"The biometric demo system he built won us three major client deals. His ability to seamlessly integrate hardware, software, and networking into a polished demo is genuinely rare."</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">MH</div>
                     <div>
@@ -814,211 +740,148 @@
     </div>
 </section>
 
-<!-- ===== PROJECTS ===== -->
-<section id="projects">
+<!-- PROCESS -->
+<section id="process">
     <div class="container">
-        <div class="section-label">Projects</div>
-        <h2 class="section-title">Open source &amp; side work</h2>
-        <p class="section-desc">Tools and libraries I've built or contributed to.</p>
-        <div class="projects-grid stagger">
-            <div class="project-card">
-                <div class="project-tags">
-                    <span class="project-tag py">Python</span>
-                    <span class="project-tag">Flask</span>
-                    <span class="project-tag">WebSocket</span>
-                </div>
-                <h3>local-mock-server</h3>
-                <p>Mock server suite for rapid API prototyping — Flask REST, asyncio WebSocket, and TCP mock servers. Perfect for offline testing.</p>
-                <div class="project-links">
-                    <a href="https://github.com/yongtwin/local-mock-server" target="_blank">GitHub →</a>
-                </div>
+        <div class="section-label">Process</div>
+        <h2 class="section-title">How I <span class="highlight">deliver</span></h2>
+        <p class="section-desc">A transparent, predictable engagement model. No surprises.</p>
+        <div class="process-grid stagger">
+            <div class="process-step">
+                <div class="process-num">01</div>
+                <h4>Discovery</h4>
+                <p>I learn your stack, pain points, and goals. 1-2 days.</p>
             </div>
-            <div class="project-card">
-                <div class="project-tags">
-                    <span class="project-tag js">JavaScript</span>
-                    <span class="project-tag">React</span>
-                </div>
-                <h3>chat-ui-kit-react</h3>
-                <p>Contributed to chatscope's open-source React UI toolkit for building chat interfaces and messaging apps.</p>
-                <div class="project-links">
-                    <a href="https://github.com/yongtwin/chat-ui-kit-react" target="_blank">GitHub →</a>
-                </div>
+            <div class="process-step">
+                <div class="process-num">02</div>
+                <h4>Proposal</h4>
+                <p>Clear scope, timeline, and fixed-price quote. No ambiguity.</p>
             </div>
-            <div class="project-card">
-                <div class="project-tags">
-                    <span class="project-tag ts">TypeScript</span>
-                    <span class="project-tag">React</span>
-                    <span class="project-tag">Material UI</span>
-                </div>
-                <h3>react-admin</h3>
-                <p>Fork of marmelab/react-admin — data-driven admin panels on REST/GraphQL APIs with React and Material Design.</p>
-                <div class="project-links">
-                    <a href="https://github.com/yongtwin/react-admin" target="_blank">GitHub →</a>
-                </div>
+            <div class="process-step">
+                <div class="process-num">03</div>
+                <h4>Build</h4>
+                <p>Iterative development with weekly demos and check-ins.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">04</div>
+                <h4>Ship</h4>
+                <p>CI/CD, automated tests, staged rollout. Zero-drama releases.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">05</div>
+                <h4>Support</h4>
+                <p>Post-launch monitoring, maintenance, and knowledge transfer.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== SKILLS ===== -->
-<section id="skills">
+<!-- SKILLS -->
+<section id="skills" style="padding-top:0;">
     <div class="container">
-        <div class="section-label">Skills</div>
-        <h2 class="section-title">Tech stack</h2>
-        <p class="section-desc">The tools I've shipped with for the past decade.</p>
-        <div class="skills-compact stagger">
+        <div class="skills-wrap stagger">
             <div class="skill-group">
                 <h4>Backend</h4>
                 <div class="skill-pills">
-                    <span class="skill-pill dotnet">C#</span>
-                    <span class="skill-pill dotnet">.NET / .NET Core</span>
-                    <span class="skill-pill">ASP.NET Web API</span>
+                    <span class="skill-pill primary">C#</span>
+                    <span class="skill-pill primary">.NET 8</span>
+                    <span class="skill-pill">ASP.NET Core</span>
                     <span class="skill-pill">Microservices</span>
+                    <span class="skill-pill">Entity Framework</span>
+                    <span class="skill-pill">REST APIs</span>
                     <span class="skill-pill">Python</span>
-                    <span class="skill-pill">Java Spring Boot</span>
-                    <span class="skill-pill">Flask</span>
+                    <span class="skill-pill">Java Spring</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Cloud & DevOps</h4>
+                <div class="skill-pills">
+                    <span class="skill-pill primary">Azure</span>
+                    <span class="skill-pill">Azure DevOps</span>
+                    <span class="skill-pill">CI/CD</span>
+                    <span class="skill-pill">Docker</span>
+                    <span class="skill-pill">TeamCity</span>
+                    <span class="skill-pill">Git</span>
                 </div>
             </div>
             <div class="skill-group">
                 <h4>Frontend</h4>
                 <div class="skill-pills">
-                    <span class="skill-pill dotnet">React</span>
+                    <span class="skill-pill">React</span>
                     <span class="skill-pill">Angular</span>
                     <span class="skill-pill">TypeScript</span>
                     <span class="skill-pill">JavaScript</span>
-                    <span class="skill-pill">HTML / CSS</span>
-                    <span class="skill-pill">Material UI</span>
                 </div>
             </div>
             <div class="skill-group">
-                <h4>Cloud &amp; DevOps</h4>
-                <div class="skill-pills">
-                    <span class="skill-pill dotnet">Azure</span>
-                    <span class="skill-pill">Azure DevOps</span>
-                    <span class="skill-pill">TeamCity CI/CD</span>
-                    <span class="skill-pill">Docker</span>
-                    <span class="skill-pill">Git</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <h4>Security</h4>
+                <h4>Compliance</h4>
                 <div class="skill-pills">
                     <span class="skill-pill">SOC 2</span>
                     <span class="skill-pill">VAPT</span>
-                    <span class="skill-pill">MS SQL Server</span>
                     <span class="skill-pill">DR Planning</span>
+                    <span class="skill-pill">MS SQL</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ===== CTA BANNER ===== -->
-<section style="padding:60px 0;">
+<!-- CTA -->
+<section class="cta-section" id="contact">
+    <div class="cta-glow"></div>
     <div class="container">
-        <div class="cta-banner fade-up">
-            <h2>Have a project in mind?</h2>
-            <p>Let's talk about how I can help your business — whether it's building something new, fixing something broken, or preparing for compliance.</p>
-            <a href="mailto:yongtwin27@gmail.com?subject=Project%20Inquiry" class="cta-big">
-                Start a Conversation →
+        <div class="cta-box reveal-scale">
+            <div class="section-label">Let's Talk</div>
+            <h2>Ready to ship reliable software?</h2>
+            <p>Tell me about your project — I'll reply within 24 hours with my thoughts on how to approach it, whether we're a good fit, and an estimated timeline.</p>
+            <a href="mailto:yongtwin27@gmail.com?subject=Project%20Inquiry%20-%20yong.dev" class="cta-big">
+                Start the Conversation →
             </a>
+            <div class="cta-sub">No commitment needed. Just a conversation.</div>
         </div>
     </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact" style="padding-top:0;">
+<!-- CONTACT STRIP -->
+<section style="padding:0 0 32px;">
     <div class="container">
-        <div class="contact-links">
-            <a href="mailto:yongtwin27@gmail.com" class="contact-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <div class="contact-strip">
+            <a href="mailto:yongtwin27@gmail.com">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 yongtwin27@gmail.com
             </a>
-            <a href="https://github.com/yongtwin" target="_blank" class="contact-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                github.com/yongtwin
+            <a href="https://github.com/yongtwin" target="_blank">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
             </a>
-            <a href="https://linkedin.com/in/yong-twin-chin" target="_blank" class="contact-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.08 20.45H3.56V9h3.52v11.45zM5.32 7.6a2.04 2.04 0 1 1 0-4.08 2.04 2.04 0 0 1 0 4.08zM20.45 20.45h-3.52v-5.68c0-1.35-.02-3.09-1.88-3.09s-2.17 1.47-2.17 2.99v5.78H9.36V9h3.38v1.56h.05c.47-.89 1.62-1.83 3.33-1.83 3.56 0 4.22 2.34 4.22 5.39v6.33z"/></svg>
+            <a href="https://linkedin.com/in/yong-twin-chin" target="_blank">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.08 20.45H3.56V9h3.52v11.45zM5.32 7.6a2.04 2.04 0 1 1 0-4.08 2.04 2.04 0 0 1 0 4.08zM20.45 20.45h-3.52v-5.68c0-1.35-.02-3.09-1.88-3.09s-2.17 1.47-2.17 2.99v5.78H9.36V9h3.38v1.56h.05c.47-.89 1.62-1.83 3.33-1.83 3.56 0 4.22 2.34 4.22 5.39v6.33z"/></svg>
                 LinkedIn
             </a>
         </div>
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
-        <p>© 2026 Chin Yong Twin. Built with vanilla everything.</p>
+        <p>© 2026 Chin Yong Twin. Built with purpose.</p>
     </div>
 </footer>
 
 <script>
 // Mobile toggle
-(document.getElementById('mobileToggle')).addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
-});
-document.querySelectorAll('#navLinks a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-});
-
-// Particles
-(function(){
-    const c = document.getElementById('heroParticles');
-    if (!c) return;
-    for (let i = 0; i < 25; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        const s = 2 + Math.random() * 6;
-        p.style.width = s + 'px'; p.style.height = s + 'px';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.animationDuration = 10 + Math.random() * 25 + 's';
-        p.style.animationDelay = Math.random() * 20 + 's';
-        c.appendChild(p);
-    }
-})();
+document.getElementById('mobileToggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
 
 // Scroll progress
 const pb = document.getElementById('scrollProgress');
-window.addEventListener('scroll', () => {
-    const p = Math.min((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100, 100);
-    pb.style.width = p + '%';
-});
+window.addEventListener('scroll', () => { const p = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100, 100); pb.style.width = p + '%'; });
 
 // Intersection Observer
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        const title = entry.target.querySelector('.section-title');
-        if (title) setTimeout(() => title.classList.add('glow-visible'), 200);
-    });
-}, { threshold: 0.12 });
+const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-right, .reveal-scale, .stagger').forEach(el => observer.observe(el));
 
-document.querySelectorAll('.fade-in, .fade-up, .scale-in, .stagger').forEach(el => observer.observe(el));
-
-// Animated counters
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting || entry.target.dataset.counted) return;
-        entry.target.dataset.counted = 'true';
-        const target = parseInt(entry.target.dataset.target);
-        const duration = 1500;
-        const start = performance.now();
-        function update(now) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            entry.target.textContent = Math.round(eased * target) + (target >= 10 ? '+' : '%');
-            if (progress < 1) requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-    });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-value[data-target]').forEach(el => counterObserver.observe(el));
-
-// Nav active state
+// Nav active
 const sections = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a');
 function updateNav() {
@@ -1030,12 +893,10 @@ window.addEventListener('scroll', updateNav);
 updateNav();
 
 // Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e) {
-        const t = document.querySelector(this.getAttribute('href'));
-        if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
-    });
-});
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
+}));
 </script>
 </body>
 </html>
