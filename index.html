@@ -496,7 +496,7 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#services">Services</a></li>
             <li><a href="#work">Case Studies</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#process">Process</a></li>
             <li><a href="#contact" class="nav-cta">Book a Call</a></li>
         </ul>
@@ -696,45 +696,41 @@
     </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
+<!-- PROJECTS -->
+<section id="projects">
     <div class="container">
-        <div class="section-label">Testimonials</div>
-        <h2 class="section-title">What people <span class="highlight">say about working with me</span></h2>
-        <p class="section-desc">Don't take my word for it — here's what colleagues and clients have shared.</p>
-        <div class="testimonials-grid stagger">
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="quote">"Yong Twin took ownership of our most fragile legacy system and stabilized it within weeks. His root-cause analysis on production incidents is the best I've seen — he finds what others miss."</p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">SK</div>
-                    <div>
-                        <div class="testimonial-name">Senthil Kumar</div>
-                        <div class="testimonial-role">Engineering Lead, Honeywell</div>
-                    </div>
+        <div class="section-label">Projects</div>
+        <h2 class="section-title">Open source &amp; <span class="highlight">side work</span></h2>
+        <p class="section-desc">Real code I've written and published. No fluff — just tools I built because I needed them.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;" class="stagger">
+            <div style="background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:28px;transition:all 0.3s ease;">
+                <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;">
+                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(52,211,153,0.06);color:#6ee7b7;">Python</span>
+                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">Flask</span>
+                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">WebSocket</span>
                 </div>
+                <h3 style="font-size:1rem;font-weight:600;margin-bottom:6px;">local-mock-server</h3>
+                <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.6;">Lightweight mock server suite — Flask REST, asyncio WebSocket, and TCP mock servers. Built for rapid API prototyping and offline testing.</p>
+                <div style="margin-top:12px;"><a href="https://github.com/yongtwin/local-mock-server" target="_blank" style="font-size:0.78rem;">GitHub →</a></div>
             </div>
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="quote">"He led our SOC 2 preparation from nothing to certified. His knowledge of security controls and compliance documentation turned a stressful audit into a smooth process."</p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">PL</div>
-                    <div>
-                        <div class="testimonial-name">Poh Leong</div>
-                        <div class="testimonial-role">CTO, Anacle Systems</div>
-                    </div>
+            <div style="background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:28px;transition:all 0.3s ease;">
+                <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;">
+                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(251,191,36,0.06);color:#fcd34d;">JavaScript</span>
+                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">React</span>
                 </div>
+                <h3 style="font-size:1rem;font-weight:600;margin-bottom:6px;">chat-ui-kit-react</h3>
+                <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.6;">Contributed to chatscope's open-source toolkit — pre-built React components for chat interfaces, messaging apps, and real-time communication.</p>
+                <div style="margin-top:12px;"><a href="https://github.com/yongtwin/chat-ui-kit-react" target="_blank" style="font-size:0.78rem;">GitHub →</a></div>
             </div>
-            <div class="testimonial-card">
-                <div class="stars">★★★★★</div>
-                <p class="quote">"The biometric demo system he built won us three major client deals. His ability to seamlessly integrate hardware, software, and networking into a polished demo is genuinely rare."</p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">MH</div>
-                    <div>
-                        <div class="testimonial-name">Ming Hui</div>
-                        <div class="testimonial-role">Sales Director, Idemia Singapore</div>
-                    </div>
+            <div style="background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:28px;transition:all 0.3s ease;">
+                <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;">
+                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(59,130,246,0.06);color:#93c5fd;">TypeScript</span>
+                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">React</span>
+                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">Material UI</span>
                 </div>
+                <h3 style="font-size:1rem;font-weight:600;margin-bottom:6px;">react-admin</h3>
+                <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.6;">Fork of marmelab/react-admin — framework for building data-driven admin panels on top of REST/GraphQL APIs.</p>
+                <div style="margin-top:12px;"><a href="https://github.com/yongtwin/react-admin" target="_blank" style="font-size:0.78rem;">GitHub →</a></div>
             </div>
         </div>
     </div>
