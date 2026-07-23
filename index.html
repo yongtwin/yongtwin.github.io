@@ -451,14 +451,177 @@
         }
 
         /* ===== ANIMATIONS ===== */
-        .fade-in {
+        .fade-in, .fade-left, .fade-right, .scale-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .fade-in.visible {
+        .fade-in { transform: translateY(30px); }
+        .fade-left { transform: translateX(-40px); }
+        .fade-right { transform: translateX(40px); }
+        .scale-in { transform: scale(0.85); }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-left.visible { opacity: 1; transform: translateX(0); }
+        .fade-right.visible { opacity: 1; transform: translateX(0); }
+        .scale-in.visible { opacity: 1; transform: scale(1); }
+        .stagger-children > * {
+            opacity: 0; transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.08s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.16s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.24s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.32s; opacity: 1; transform: translateY(0); }
+        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.40s; opacity: 1; transform: translateY(0); }
+
+        /* ===== SCROLL PROGRESS BAR ===== */
+        #scrollProgress {
+            position: fixed; top: 0; left: 0; height: 2px;
+            background: linear-gradient(90deg, #818cf8, #34d399);
+            z-index: 1001; width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ===== HERO PARTICLES ===== */
+        .hero-particles {
+            position: absolute; inset: 0; overflow: hidden;
+            pointer-events: none; z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(129, 140, 248, 0.15);
+            animation: float linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* ===== HERO GRADIENT TEXT ===== */
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #818cf8, #34d399, #818cf8, #34d399);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ===== SECTION TITLE GLOW ===== */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, #818cf8, transparent);
+            transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .section-title.glow-visible::after { width: 60px; }
+
+        /* ===== CARD HOVER EFFECTS ===== */
+        .about-card, .project-card, .skill-category {
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.35s ease;
+        }
+        .about-card:hover, .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(129, 140, 248, 0.08);
+        }
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(129, 140, 248, 0.06);
+        }
+
+        /* ===== SKILL ITEMS ===== */
+        .skill-item {
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-item::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(129,140,248,0.08), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-2px) scale(1.04);
+            border-color: rgba(129,140,248,0.25);
+            box-shadow: 0 4px 12px rgba(129,140,248,0.1);
+        }
+        .skill-item:hover::before { opacity: 1; }
+
+        /* ===== TIMELINE ANIMATION ===== */
+        .timeline-item {
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .timeline-dot {
+            transition: transform 0.4s ease, background 0.4s ease;
+        }
+        .timeline-item.visible .timeline-dot {
+            transform: scale(1.3);
+            background: #a5b4fc;
+            box-shadow: 0 0 16px rgba(129,140,248,0.4);
+        }
+        .timeline::before {
+            transition: height 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* ===== GLOW BORDER CARDS ===== */
+        .project-card {
+            position: relative;
+        }
+        .project-card::after {
+            content: '';
+            position: absolute; inset: -1px;
+            border-radius: 13px;
+            background: linear-gradient(135deg, rgba(129,140,248,0), rgba(129,140,248,0.1), rgba(52,211,153,0), rgba(129,140,248,0));
+            background-size: 300% 300%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+        .project-card:hover::after {
             opacity: 1;
-            transform: translateY(0);
+            animation: borderGlow 2s ease-in-out infinite;
+        }
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ===== NAV ACTIVE INDICATOR ===== */
+        .nav-links a.active-link {
+            color: #e4e4e7;
+        }
+        .nav-links a.active-link::after {
+            content: '';
+            position: absolute; bottom: -4px; left: 0; right: 0;
+            height: 1px;
+            background: #818cf8;
+        }
+        .nav-links a { position: relative; }
+
+        /* ===== CONTACT LINK HOVER ===== */
+        .contact-link {
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(129,140,248,0.1);
         }
 
         /* ===== RESPONSIVE ===== */
@@ -474,6 +637,8 @@
     </style>
 </head>
 <body>
+    <!-- ===== SCROLL PROGRESS ===== -->
+    <div id="scrollProgress"></div>
 
     <!-- ===== NAV ===== -->
     <nav>
@@ -494,6 +659,7 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
+        <div class="hero-particles" id="heroParticles"></div>
         <div class="container hero-content">
             <div class="hero-badge">✦ 10 Years of Engineering Excellence</div>
             <h1>
@@ -550,7 +716,7 @@
                         pragmatic, LLM-resistant ways to solve real problems.
                     </p>
                 </div>
-                <div class="about-highlights fade-in">
+                <div class="about-highlights stagger-children fade-in">
                     <div class="about-card">
                         <div class="about-card-icon">⚙️</div>
                         <h4>Backend Systems</h4>
@@ -717,7 +883,7 @@
             <div class="section-label">Projects</div>
             <h2 class="section-title">Open source &amp; side work</h2>
             <p class="section-desc">Projects I've built or contributed to — from mock-servers to UI toolkits.</p>
-            <div class="projects-grid">
+            <div class="projects-grid stagger-children">
 
                 <div class="project-card fade-in">
                     <div class="project-tags">
@@ -767,7 +933,7 @@
             <div class="section-label">Skills</div>
             <h2 class="section-title">Tech &amp; tools</h2>
             <p class="section-desc">The stack I've built my career on — and what I'm exploring next.</p>
-            <div class="skills-grid">
+            <div class="skills-grid stagger-children">
                 <div class="skill-category fade-in">
                     <h3>Backend</h3>
                     <div class="skill-items">
@@ -869,7 +1035,7 @@
     </footer>
 
     <script>
-        // Mobile toggle
+        // ===== MOBILE TOGGLE =====
         const toggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
         toggle.addEventListener('click', () => {
@@ -879,18 +1045,75 @@
             a.addEventListener('click', () => navLinks.classList.remove('open'));
         });
 
-        // Intersection Observer for fade-in
+        // ===== HERO PARTICLES =====
+        (function() {
+            const container = document.getElementById('heroParticles');
+            if (!container) return;
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = 2 + Math.random() * 6;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = 12 + Math.random() * 20 + 's';
+                p.style.animationDelay = Math.random() * 15 + 's';
+                container.appendChild(p);
+            }
+        })();
+
+        // ===== SCROLL PROGRESS BAR =====
+        const progressBar = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        });
+
+        // ===== INTERSECTION OBSERVER =====
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+
+                    // Section title glow
+                    const title = entry.target.querySelector('.section-title');
+                    if (title) {
+                        setTimeout(() => title.classList.add('glow-visible'), 200);
+                    }
+
+                    // Stagger children handled by CSS
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.12 });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.fade-in, .fade-left, .fade-right, .scale-in, .stagger-children')
+            .forEach(el => observer.observe(el));
 
-        // Smooth scroll offset for fixed nav
+        // Also observe timeline items individually
+        document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+
+        // ===== NAV ACTIVE STATE =====
+        const sections = document.querySelectorAll('section[id]');
+        const navAnchors = document.querySelectorAll('.nav-links a');
+
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navAnchors.forEach(a => {
+                a.classList.toggle('active-link', a.getAttribute('href') === '#' + current);
+            });
+        }
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
+        // ===== SMOOTH SCROLL (fixed nav offset) =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
