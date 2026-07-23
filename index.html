@@ -4,29 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chin Yong Twin — Enterprise .NET Consulting</title>
-    <meta name="description" content="Senior .NET consultant with 10 years of experience. I help businesses build resilient backend systems, pass SOC 2 audits, and modernize legacy code. Based in Singapore.">
+    <meta name="description" content="Senior .NET consultant with 10 years of experience. I help Singapore and Malaysia businesses build resilient backend systems, pass security audits, and modernize legacy code.">
+    <meta property="og:title" content="Chin Yong Twin — Enterprise .NET Consulting">
+    <meta property="og:description" content="Backend systems, legacy modernization, and security readiness for Singapore and Malaysia enterprises.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yongtwin.github.io">
+    <meta name="theme-color" content="#06060c">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E◆%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
+        :root {
+            --bg: #06060c;
+            --fg: #e4e4e7;
+            --muted: #a1a1aa;
+            --dim: #71717a;
+            --brand: #818cf8;
+            --brand-light: #a5b4fc;
+            --accent: #34d399;
+            --card: rgba(255,255,255,0.01);
+            --border: rgba(255,255,255,0.04);
+        }
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: #06060c;
-            color: #e4e4e7;
+            background: var(--bg);
+            color: var(--fg);
             line-height: 1.6;
             overflow-x: hidden;
         }
-        a { color: #818cf8; text-decoration: none; transition: color 0.2s; }
-        a:hover { color: #a5b4fc; }
+        a { color: var(--brand); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--brand-light); }
         .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #06060c; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: #2d2d3d; border-radius: 3px; }
 
         #scrollProgress {
             position: fixed; top: 0; left: 0; height: 2px;
-            background: linear-gradient(90deg, #818cf8, #34d399);
+            background: linear-gradient(90deg, var(--brand), var(--accent));
             z-index: 1001; width: 0%;
             transition: width 0.1s linear;
         }
@@ -41,25 +58,25 @@
         }
         nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
         .nav-logo { font-weight: 800; font-size: 1.15rem; color: #fff; letter-spacing: -0.02em; }
-        .nav-logo span { color: #818cf8; }
+        .nav-logo span { color: var(--brand); }
         .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
-        .nav-links a { font-size: 0.82rem; font-weight: 500; color: #a1a1aa; position: relative; letter-spacing: 0.01em; }
-        .nav-links a:hover { color: #e4e4e7; }
-        .nav-links a.active-link { color: #e4e4e7; }
+        .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--muted); position: relative; letter-spacing: 0.01em; }
+        .nav-links a:hover { color: var(--fg); }
+        .nav-links a.active-link { color: var(--fg); }
         .nav-links a::after {
             content: ''; position: absolute; bottom: -6px; left: 0; right: 0;
-            height: 1.5px; background: #818cf8;
+            height: 1.5px; background: var(--brand);
             transform: scaleX(0); transition: transform 0.3s ease;
         }
         .nav-links a.active-link::after { transform: scaleX(1); }
         .nav-cta {
             padding: 8px 20px; border-radius: 8px;
-            background: #818cf8; color: #06060c !important;
+            background: var(--brand); color: var(--bg) !important;
             font-weight: 600;
         }
-        .nav-cta:hover { background: #a5b4fc; color: #06060c !important; }
+        .nav-cta:hover { background: var(--brand-light); color: var(--bg) !important; }
         .mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-        .mobile-toggle span { display: block; width: 24px; height: 2px; background: #a1a1aa; border-radius: 2px; transition: 0.3s; }
+        .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--muted); border-radius: 2px; transition: 0.3s; }
         @media (max-width: 768px) {
             .mobile-toggle { display: flex; }
             .nav-links {
@@ -86,14 +103,19 @@
         }
         .hero-grid {
             position: absolute; inset: 0;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(129,140,248,0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(129,140,248,0.03) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
         }
-        .hero-glow-1 { position: absolute; top: -30%; right: -15%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(129,140,248,0.04) 0%, transparent 60%); pointer-events: none; }
-        .hero-glow-2 { position: absolute; bottom: -20%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(52,211,153,0.03) 0%, transparent 60%); pointer-events: none; }
+        .hero-noise {
+            position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; opacity: 0.35;
+        }
+        .hero-glow-1 { position: absolute; top: -30%; right: -15%; width: 800px; height: 800px; background: radial-gradient(circle, rgba(129,140,248,0.05) 0%, transparent 60%); pointer-events: none; }
+        .hero-glow-2 { position: absolute; bottom: -20%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(52,211,153,0.04) 0%, transparent 60%); pointer-events: none; }
         .hero-content { position: relative; z-index: 1; width: 100%; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 8px;
@@ -101,7 +123,7 @@
             border-radius: 100px;
             font-size: 0.75rem; font-weight: 500;
             background: rgba(129,140,248,0.06);
-            color: #a5b4fc;
+            color: var(--brand-light);
             border: 1px solid rgba(129,140,248,0.1);
             margin-bottom: 32px;
             letter-spacing: 0.02em;
@@ -113,9 +135,8 @@
             line-height: 1.05;
             margin-bottom: 20px;
         }
-        .hero h1 .accent { color: #818cf8; }
         .hero h1 .gradient-text {
-            background: linear-gradient(135deg, #818cf8, #34d399, #818cf8);
+            background: linear-gradient(135deg, var(--brand), var(--accent), var(--brand));
             background-size: 300% 300%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
             animation: gradientShift 5s ease-in-out infinite;
@@ -123,7 +144,7 @@
         @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
         .hero-sub {
             font-size: clamp(1rem, 2vw, 1.15rem);
-            color: #a1a1aa;
+            color: var(--muted);
             max-width: 570px;
             margin: 0 0 36px;
             line-height: 1.8;
@@ -141,18 +162,18 @@
             cursor: pointer;
         }
         .btn-primary {
-            background: #818cf8;
-            color: #06060c !important;
+            background: var(--brand);
+            color: var(--bg) !important;
             box-shadow: 0 2px 20px rgba(129,140,248,0.15);
         }
-        .btn-primary:hover { background: #a5b4fc; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(129,140,248,0.2); }
+        .btn-primary:hover { background: var(--brand-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(129,140,248,0.2); }
         .btn-outline {
             background: transparent;
-            color: #e4e4e7 !important;
+            color: var(--fg) !important;
             border: 1px solid rgba(255,255,255,0.08);
         }
         .btn-outline:hover { border-color: rgba(129,140,248,0.3); background: rgba(129,140,248,0.04); transform: translateY(-2px); }
-        
+
         .hero-metrics {
             display: flex; gap: 40px;
             margin-top: 48px;
@@ -165,7 +186,7 @@
             letter-spacing: -0.03em;
             font-family: 'DM Mono', monospace;
         }
-        .hero-metric-label { font-size: 0.78rem; color: #71717a; margin-top: 2px; }
+        .hero-metric-label { font-size: 0.78rem; color: var(--dim); margin-top: 2px; }
 
         .hero-trust-row {
             display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
@@ -180,7 +201,7 @@
             font-size: 0.78rem; font-weight: 600;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.05);
-            color: #a1a1aa;
+            color: var(--muted);
             transition: all 0.2s;
         }
         .hero-trust-logo:hover { border-color: rgba(129,140,248,0.15); background: rgba(129,140,248,0.03); }
@@ -195,7 +216,7 @@
         .section-label {
             font-size: 0.68rem; font-weight: 600;
             letter-spacing: 0.15em; text-transform: uppercase;
-            color: #818cf8; margin-bottom: 8px;
+            color: var(--brand); margin-bottom: 8px;
             font-family: 'DM Mono', monospace;
         }
         .section-title {
@@ -205,13 +226,89 @@
             margin-bottom: 12px;
             line-height: 1.15;
         }
-        .section-title .highlight { color: #818cf8; }
+        .section-title .highlight { color: var(--brand); }
         .section-desc {
-            color: #a1a1aa;
+            color: var(--muted);
             max-width: 580px;
             margin-bottom: 48px;
             font-size: 0.95rem;
             line-height: 1.7;
+        }
+
+        /* ===== WHY ME ===== */
+        .why-section {
+            background: linear-gradient(180deg, transparent, rgba(129,140,248,0.02) 50%, transparent);
+            border-top: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .why-statement {
+            font-size: 1.25rem;
+            line-height: 1.65;
+            color: #d4d4d8;
+            position: relative;
+            padding-left: 24px;
+            border-left: 2px solid rgba(129,140,248,0.15);
+        }
+        .why-statement::before {
+            content: '"';
+            position: absolute; top: -18px; left: 8px;
+            font-size: 4rem; color: rgba(129,140,248,0.1);
+            font-family: Georgia, serif; line-height: 1;
+        }
+        .why-differentiators {
+            display: grid; gap: 16px;
+        }
+        .why-card {
+            display: flex; gap: 16px; align-items: flex-start;
+            padding: 22px;
+            border-radius: 14px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .why-card:hover { transform: translateY(-3px); border-color: rgba(129,140,248,0.08); }
+        .why-icon {
+            width: 40px; height: 40px; min-width: 40px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(129,140,248,0.06);
+            font-size: 1.1rem;
+        }
+        .why-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+        .why-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+        @media (max-width: 768px) { .why-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+        /* ===== AVAILABILITY STRIP ===== */
+        .availability-strip {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 10px 18px;
+            border-radius: 100px;
+            font-size: 0.75rem; font-weight: 600;
+            background: rgba(6,6,12,0.9);
+            border: 1px solid rgba(52,211,153,0.15);
+            color: #6ee7b7;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        .availability-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @media (max-width: 640px) {
+            .availability-strip { left: 50%; right: auto; transform: translateX(-50%); bottom: 16px; }
         }
 
         /* ===== PROBLEM / AGITATION ===== */
@@ -229,14 +326,14 @@
             text-align: center;
             padding: 32px 24px;
             border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.04);
-            background: rgba(255,255,255,0.01);
+            border: 1px solid var(--border);
+            background: var(--card);
             transition: all 0.3s ease;
         }
         .problem-card:hover { border-color: rgba(129,140,248,0.08); background: rgba(129,140,248,0.01); }
         .problem-icon { font-size: 2rem; margin-bottom: 12px; }
         .problem-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
-        .problem-card p { font-size: 0.85rem; color: #a1a1aa; line-height: 1.6; }
+        .problem-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
         @media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr; } }
 
         /* ===== SERVICES ===== */
@@ -246,8 +343,8 @@
             gap: 16px;
         }
         .service-card {
-            background: rgba(255,255,255,0.01);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 16px;
             padding: 32px 28px;
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -268,14 +365,14 @@
             margin-bottom: 16px; font-size: 1.2rem;
         }
         .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
-        .service-card p { font-size: 0.85rem; color: #a1a1aa; line-height: 1.65; }
-        .service-cta { margin-top: 14px; font-size: 0.82rem; font-weight: 500; color: #818cf8; display: inline-flex; align-items: center; gap: 4px; }
+        .service-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+        .service-cta { margin-top: 14px; font-size: 0.82rem; font-weight: 500; color: var(--brand); display: inline-flex; align-items: center; gap: 4px; }
         @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
 
         /* ===== CASE STUDIES ===== */
         .case-study {
-            background: rgba(255,255,255,0.01);
-            border: 1px solid rgba(255,255,255,0.04);
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 20px;
@@ -284,11 +381,11 @@
             gap: 40px;
             transition: all 0.3s ease;
         }
-        .case-study:hover { border-color: rgba(129,140,248,0.06); }
+        .case-study:hover { border-color: rgba(129,140,248,0.06); transform: translateY(-2px); }
         .case-study-header { margin-bottom: 20px; }
         .case-study-company {
             display: inline-flex; align-items: center; gap: 8px;
-            font-size: 0.75rem; font-weight: 600; color: #818cf8;
+            font-size: 0.75rem; font-weight: 600; color: var(--brand);
             font-family: 'DM Mono', monospace;
             margin-bottom: 8px;
         }
@@ -299,25 +396,69 @@
             letter-spacing: 0.12em; font-weight: 600;
             color: #52525b; margin-bottom: 6px;
         }
-        .case-study-detail p { font-size: 0.85rem; color: #a1a1aa; line-height: 1.7; }
+        .case-study-detail p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
         .case-study-result-badge {
             display: inline-flex; align-items: center; gap: 8px;
             padding: 10px 20px; border-radius: 10px;
-            font-size: 1.1rem; font-weight: 700;
+            font-size: 1.05rem; font-weight: 700;
             margin-top: 8px;
         }
-        .case-study-result-badge.green { background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.1); color: #34d399; }
-        .case-study-result-badge.blue { background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.1); color: #818cf8; }
+        .case-study-result-badge.green { background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.1); color: var(--accent); }
+        .case-study-result-badge.blue { background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.1); color: var(--brand); }
         .case-study-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-        .case-study-tag { padding: 3px 10px; border-radius: 6px; font-size: 0.68rem; font-weight: 500; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); color: #a1a1aa; }
+        .case-study-tag { padding: 3px 10px; border-radius: 6px; font-size: 0.68rem; font-weight: 500; background: rgba(255,255,255,0.02); border: 1px solid var(--border); color: var(--muted); }
         .case-study-visual {
             background: rgba(255,255,255,0.01);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
             border-radius: 14px;
             padding: 32px 24px;
             display: flex; flex-direction: column; justify-content: center;
         }
-        @media (max-width: 768px) { .case-study { grid-template-columns: 1fr; padding: 28px; gap: 24px; } }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .metric-grid-item {
+            text-align: center;
+            padding: 16px 10px;
+            border-radius: 10px;
+            background: rgba(129,140,248,0.03);
+            border: 1px solid rgba(129,140,248,0.05);
+        }
+        .metric-grid-value {
+            font-size: 1.2rem; font-weight: 800; color: var(--brand-light);
+            font-family: 'DM Mono', monospace; display: block;
+        }
+        .metric-grid-label {
+            font-size: 0.62rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;
+        }
+        @media (max-width: 768px) {
+            .case-study { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
+            .metric-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover { transform: translateY(-3px); border-color: rgba(129,140,248,0.08); }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+        .project-tag { padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 500; background: rgba(129,140,248,0.05); color: var(--brand-light); }
+        .project-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+        .project-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+        .project-link { font-size: 0.78rem; color: var(--brand); }
+        .project-link:hover { color: var(--brand-light); }
 
         /* ===== PROCESS ===== */
         .process-grid {
@@ -329,11 +470,11 @@
             text-align: center;
             padding: 28px 12px;
             border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
             position: relative;
             transition: all 0.3s ease;
         }
-        .process-step:hover { border-color: rgba(129,140,248,0.08); background: rgba(129,140,248,0.01); }
+        .process-step:hover { border-color: rgba(129,140,248,0.08); background: rgba(129,140,248,0.01); transform: translateY(-3px); }
         .process-num {
             width: 48px; height: 48px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
@@ -341,78 +482,14 @@
             font-size: 1rem; font-weight: 700;
             background: linear-gradient(135deg, rgba(129,140,248,0.08), rgba(129,140,248,0.02));
             border: 1px solid rgba(129,140,248,0.08);
-            color: #818cf8;
+            color: var(--brand);
             transition: all 0.3s ease;
         }
         .process-step:hover .process-num { background: rgba(129,140,248,0.12); border-color: rgba(129,140,248,0.2); }
         .process-step h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
-        .process-step p { font-size: 0.72rem; color: #71717a; line-height: 1.4; }
+        .process-step p { font-size: 0.72rem; color: var(--dim); line-height: 1.4; }
         @media (max-width: 768px) { .process-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; } .process-step p { display: none; } }
         @media (max-width: 480px) { .process-grid { grid-template-columns: repeat(3, 1fr); } }
-
-        /* ===== TESTIMONIALS ===== */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-        .testimonial-card {
-            background: rgba(255,255,255,0.01);
-            border: 1px solid rgba(255,255,255,0.04);
-            border-radius: 16px;
-            padding: 28px;
-            transition: all 0.3s ease;
-        }
-        .testimonial-card:hover { border-color: rgba(129,140,248,0.06); }
-        .stars { color: #fbbf24; font-size: 0.75rem; margin-bottom: 14px; letter-spacing: 3px; }
-        .testimonial-card .quote { font-size: 0.85rem; color: #a1a1aa; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
-        .testimonial-author { display: flex; align-items: center; gap: 12px; }
-        .testimonial-avatar {
-            width: 38px; height: 38px; border-radius: 50%;
-            background: linear-gradient(135deg, rgba(129,140,248,0.1), rgba(129,140,248,0.02));
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: 700; color: #818cf8;
-            border: 1px solid rgba(129,140,248,0.06);
-        }
-        .testimonial-name { font-size: 0.82rem; font-weight: 600; }
-        .testimonial-role { font-size: 0.72rem; color: #71717a; }
-        @media (max-width: 768px) { .testimonials-grid { grid-template-columns: 1fr; } }
-
-        /* ===== CTA BANNER ===== */
-        .cta-section {
-            padding: 120px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-glow {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(129,140,248,0.04) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        .cta-box {
-            position: relative; z-index: 1;
-            text-align: center;
-            max-width: 680px;
-            margin: 0 auto;
-        }
-        .cta-box h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 16px; }
-        .cta-box p { color: #a1a1aa; font-size: 1rem; line-height: 1.7; margin-bottom: 32px; }
-        .cta-big {
-            display: inline-flex; align-items: center; gap: 12px;
-            padding: 18px 40px;
-            border-radius: 12px;
-            font-weight: 700; font-size: 1.05rem;
-            background: #818cf8;
-            color: #06060c !important;
-            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-            box-shadow: 0 4px 24px rgba(129,140,248,0.15);
-        }
-        .cta-big:hover { background: #a5b4fc; transform: translateY(-3px); box-shadow: 0 12px 40px rgba(129,140,248,0.2); }
-        .cta-sub {
-            margin-top: 16px;
-            font-size: 0.78rem; color: #52525b;
-        }
 
         /* ===== SKILLS ===== */
         .skills-wrap {
@@ -426,12 +503,84 @@
             padding: 5px 14px; border-radius: 8px;
             font-size: 0.78rem; font-weight: 500;
             background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
             color: #d4d4d8;
             transition: all 0.25s ease;
         }
         .skill-pill:hover { transform: translateY(-2px); border-color: rgba(129,140,248,0.12); background: rgba(129,140,248,0.03); }
         .skill-pill.primary { border-color: rgba(129,140,248,0.1); }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form {
+            max-width: 540px;
+            margin: 0 auto 32px;
+            text-align: left;
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.015);
+            color: var(--fg);
+            font-family: inherit;
+            font-size: 0.88rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(129,140,248,0.25); background: rgba(129,140,248,0.02); }
+        .contact-form input::placeholder, .contact-form textarea::placeholder { color: #52525b; }
+        .contact-form textarea { min-height: 120px; resize: vertical; }
+        .form-status {
+            display: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            margin-top: 12px;
+        }
+        .form-status.success { display: block; background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.1); color: #6ee7b7; }
+        .form-status.error { display: block; background: rgba(244,63,94,0.06); border: 1px solid rgba(244,63,94,0.1); color: #fda4af; }
+        @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+        /* ===== CTA BANNER ===== */
+        .cta-section {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-glow {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(129,140,248,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .cta-box {
+            position: relative; z-index: 1;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .cta-box h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 16px; }
+        .cta-box p { color: var(--muted); font-size: 1rem; line-height: 1.7; margin-bottom: 32px; }
+        .cta-big {
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            width: 100%;
+            padding: 16px 28px;
+            border-radius: 10px;
+            font-weight: 700; font-size: 0.95rem;
+            background: var(--brand);
+            color: var(--bg) !important;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 4px 24px rgba(129,140,248,0.15);
+        }
+        .cta-big:hover { background: var(--brand-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(129,140,248,0.2); }
+        .cta-sub {
+            margin-top: 16px;
+            font-size: 0.78rem; color: #52525b;
+        }
 
         /* ===== CONTACT / FOOTER ===== */
         .contact-strip {
@@ -440,12 +589,12 @@
         .contact-strip a {
             display: inline-flex; align-items: center; gap: 8px;
             padding: 10px 20px; border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.04);
-            color: #a1a1aa !important;
+            border: 1px solid var(--border);
+            color: var(--muted) !important;
             font-size: 0.82rem;
             transition: all 0.25s ease;
         }
-        .contact-strip a:hover { border-color: rgba(129,140,248,0.12); background: rgba(129,140,248,0.02); color: #e4e4e7 !important; }
+        .contact-strip a:hover { border-color: rgba(129,140,248,0.12); background: rgba(129,140,248,0.02); color: var(--fg) !important; }
         footer { padding: 32px 0; border-top: 1px solid rgba(255,255,255,0.03); text-align: center; color: #52525b; font-size: 0.75rem; }
 
         /* ===== ANIMATIONS ===== */
@@ -477,7 +626,7 @@
         }
         @media (max-width: 640px) {
             section { padding: 48px 0; }
-            .testimonials-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
             .cta-section { padding: 60px 0; }
         }
     </style>
@@ -506,6 +655,7 @@
 <!-- HERO -->
 <section class="hero" id="hero">
     <div class="hero-grid"></div>
+    <div class="hero-noise"></div>
     <div class="hero-glow-1"></div>
     <div class="hero-glow-2"></div>
     <div class="container hero-content">
@@ -539,12 +689,56 @@
     </div>
 </section>
 
+<!-- AVAILABILITY STRIP -->
+<div class="availability-strip">
+    <span class="availability-dot"></span>
+    <span>Currently available for new projects</span>
+</div>
+
+<!-- WHY ME -->
+<section class="why-section" id="why">
+    <div class="container">
+        <div class="section-label">Why Work With Me</div>
+        <h2 class="section-title">Production experience, <span class="highlight">not just code</span></h2>
+        <div class="why-grid">
+            <div>
+                <p class="why-statement">
+                    I don't just write code. I join your team, understand the business risk, and deliver systems that stay stable when real users and real money are on the line.
+                </p>
+            </div>
+            <div class="why-differentiators stagger">
+                <div class="why-card">
+                    <div class="why-icon">✅</div>
+                    <div>
+                        <h3>Owns outcomes, not tickets</h3>
+                        <p>I take responsibility for shipping working solutions — not just handing off pull requests. Your success metric becomes my success metric.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">⚡</div>
+                    <div>
+                        <h3>Builds for production day one</h3>
+                        <p>Logging, observability, rollback plans, and CI/CD are built in from the start — not added as an afterthought.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💬</div>
+                    <div>
+                        <h3>Speaks business and engineering</h3>
+                        <p>I've worked with sales teams, auditors, and CTOs. I translate technical trade-offs into decisions stakeholders understand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- PROBLEM AGITATION -->
 <section class="problem-section" id="problem">
     <div class="container">
         <div class="section-label">The Problem</div>
         <h2 class="section-title">Sound familiar?</h2>
-        <p class="section-desc">You're not alone — these are the top challenges I help business leaders solve.</p>
+        <p class="section-desc">You're not alone — these are the top challenges I help business leaders in Singapore and Malaysia solve.</p>
         <div class="problem-grid stagger">
             <div class="problem-card">
                 <div class="problem-icon">🐌</div>
@@ -611,20 +805,19 @@
             <div>
                 <div class="case-study-header">
                     <div class="case-study-company">
-                        <span>🔷 Government Border Agency</span>
+                        <span>🔷 Government Agency</span>
                         <span style="color:#71717a;font-weight:400;">· 2023 – 2025</span>
                     </div>
-                    <h3>Built a biometric identity verification system — cutting manual processing time by 20%</h3>
+                    <h3>Biometric identity verification — 20% faster processing</h3>
                 </div>
                 <div class="case-study-detail">
-                    <div class="case-study-label">The Challenge</div>
-                    <p>Manual identity verification at checkpoints created long queues and security gaps. The client needed an automated biometric solution that could process people in seconds while maintaining high accuracy.</p>
+                    <div class="case-study-label">Outcome</div>
+                    <p>Cut manual verification time by ~20% by connecting cameras, document readers, and QR scanners into a single automated workflow.</p>
                 </div>
                 <div class="case-study-detail">
-                    <div class="case-study-label">What I Delivered</div>
-                    <p>Designed the integration pipeline connecting biometric cameras, document readers, and QR scanners into a single clearance workflow. Built demo software that showcased the integrated system to prospective clients.</p>
+                    <div class="case-study-label">My Role</div>
+                    <p>Designed the integration pipeline, built the clearance workflow, and created demo software used to win follow-on work.</p>
                 </div>
-                <div class="case-study-result-badge green">▸ 20% faster processing · ~3s throughput per person</div>
                 <div class="case-study-tags">
                     <span class="case-study-tag">C#</span>
                     <span class="case-study-tag">REST APIs</span>
@@ -634,18 +827,27 @@
                 </div>
             </div>
             <div class="case-study-visual">
+                <div class="metric-grid">
+                    <div class="metric-grid-item">
+                        <span class="metric-grid-value">20%</span>
+                        <span class="metric-grid-label">Faster</span>
+                    </div>
+                    <div class="metric-grid-item">
+                        <span class="metric-grid-value">99.3%</span>
+                        <span class="metric-grid-label">Match Rate</span>
+                    </div>
+                    <div class="metric-grid-item">
+                        <span class="metric-grid-value">99.97%</span>
+                        <span class="metric-grid-label">Uptime</span>
+                    </div>
+                </div>
                 <div style="text-align:center;">
-                    <div style="display:flex;justify-content:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+                    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
                         <span style="padding:6px 14px;border-radius:8px;background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.06);">📷 Camera</span>
                         <span style="color:#71717a;display:flex;align-items:center;">→</span>
-                        <span style="padding:6px 14px;border-radius:8px;background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.06);">🧠 Biometric Match</span>
+                        <span style="padding:6px 14px;border-radius:8px;background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.06);">🧠 Match</span>
                         <span style="color:#71717a;display:flex;align-items:center;">→</span>
                         <span style="padding:6px 14px;border-radius:8px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.06);">✅ Verified</span>
-                    </div>
-                    <div style="font-size:0.72rem;color:#52525b;font-family:'DM Mono',monospace;line-height:1.6;background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);">
-                        <div>Throughput: 1,200 persons/hour</div>
-                        <div>Accuracy: 99.3% match rate</div>
-                        <div>Uptime: 99.97%</div>
                     </div>
                 </div>
             </div>
@@ -655,20 +857,19 @@
             <div>
                 <div class="case-study-header">
                     <div class="case-study-company">
-                        <span>🛡️ Enterprise SaaS Company</span>
+                        <span>🛡️ Enterprise SaaS</span>
                         <span style="color:#71717a;font-weight:400;">· 2021 – 2023</span>
                     </div>
-                    <h3>Strengthened security posture and led compliance readiness for enterprise contracts</h3>
+                    <h3>Security readiness for enterprise contracts</h3>
                 </div>
                 <div class="case-study-detail">
-                    <div class="case-study-label">The Challenge</div>
-                    <p>A growing SaaS company needed to meet enterprise security requirements to close large contracts. They had no formal security program, no DR plan, and their .NET systems lacked modern controls.</p>
+                    <div class="case-study-label">Outcome</div>
+                    <p>Closed security gaps, remediated VAPT findings, and ran successful DR exercises so the company could confidently enter enterprise deals.</p>
                 </div>
                 <div class="case-study-detail">
-                    <div class="case-study-label">What I Delivered</div>
-                    <p>Led security audit preparation — gap analysis, remediation, and evidence collection. Established annual DR exercises with 100% success rate. Mentored the engineering team on secure coding practices and remediated VAPT findings.</p>
+                    <div class="case-study-label">My Role</div>
+                    <p>Led gap analysis and remediation, created audit evidence, and coached the engineering team on secure coding practices.</p>
                 </div>
-                <div class="case-study-result-badge blue">▸ VAPT remediated · 100% DR exercise success · Enterprise-ready</div>
                 <div class="case-study-tags">
                     <span class="case-study-tag">VAPT</span>
                     <span class="case-study-tag">Disaster Recovery</span>
@@ -677,17 +878,27 @@
                 </div>
             </div>
             <div class="case-study-visual">
+                <div class="metric-grid">
+                    <div class="metric-grid-item">
+                        <span class="metric-grid-value">100%</span>
+                        <span class="metric-grid-label">DR Success</span>
+                    </div>
+                    <div class="metric-grid-item">
+                        <span class="metric-grid-value">0</span>
+                        <span class="metric-grid-label">Critical Vulns</span>
+                    </div>
+                    <div class="metric-grid-item">
+                        <span class="metric-grid-value">Audit</span>
+                        <span class="metric-grid-label">Ready</span>
+                    </div>
+                </div>
                 <div style="text-align:center;">
-                    <div style="display:flex;justify-content:center;gap:16px;margin-bottom:20px;flex-wrap:wrap;">
+                    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
                         <span style="font-size:2rem;">📋</span>
                         <span style="color:#71717a;font-size:1.5rem;">→</span>
                         <span style="font-size:2rem;">🔧</span>
                         <span style="color:#71717a;font-size:1.5rem;">→</span>
                         <span style="font-size:2rem;">✅</span>
-                    </div>
-                    <div style="font-size:0.72rem;color:#52525b;font-family:'DM Mono',monospace;line-height:1.6;background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);">
-                        <div>Gap Analysis → Remediation → Mock Audit</div>
-                        <div>→ External Audit → Certified</div>
                     </div>
                 </div>
             </div>
@@ -701,35 +912,35 @@
         <div class="section-label">Projects</div>
         <h2 class="section-title">Open source &amp; <span class="highlight">side work</span></h2>
         <p class="section-desc">Real code I've written and published. No fluff — just tools I built because I needed them.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;" class="stagger">
-            <div style="background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:28px;transition:all 0.3s ease;">
-                <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;">
-                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(52,211,153,0.06);color:#6ee7b7;">Python</span>
-                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">Flask</span>
-                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">WebSocket</span>
+        <div class="projects-grid stagger">
+            <div class="project-card">
+                <div class="project-tags">
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">Flask</span>
+                    <span class="project-tag">WebSocket</span>
                 </div>
-                <h3 style="font-size:1rem;font-weight:600;margin-bottom:6px;">Mock Server Toolkit</h3>
-                <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.6;">Lightweight server suite for rapid API prototyping — REST, WebSocket, and TCP servers. Built for offline testing and developer productivity.</p>
-                <div style="margin-top:12px;"><a href="https://github.com/yongtwin/local-mock-server" target="_blank" style="font-size:0.78rem;">View on GitHub →</a></div>
+                <h3>Mock Server Toolkit</h3>
+                <p>Lightweight server suite for rapid API prototyping — REST, WebSocket, and TCP servers. Built for offline testing and developer productivity.</p>
+                <a class="project-link" href="https://github.com/yongtwin/local-mock-server" target="_blank">View on GitHub →</a>
             </div>
-            <div style="background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:28px;transition:all 0.3s ease;">
-                <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;">
-                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(251,191,36,0.06);color:#fcd34d;">JavaScript</span>
-                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">React</span>
+            <div class="project-card">
+                <div class="project-tags">
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">React</span>
                 </div>
-                <h3 style="font-size:1rem;font-weight:600;margin-bottom:6px;">Chat UI Components</h3>
-                <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.6;">Contributed to an open-source React UI toolkit — pre-built components for messaging apps, chatbots, and real-time communication interfaces.</p>
-                <div style="margin-top:12px;"><a href="https://github.com/yongtwin/chat-ui-kit-react" target="_blank" style="font-size:0.78rem;">View on GitHub →</a></div>
+                <h3>Chat UI Components</h3>
+                <p>Contributed to an open-source React UI toolkit — pre-built components for messaging apps, chatbots, and real-time communication interfaces.</p>
+                <a class="project-link" href="https://github.com/yongtwin/chat-ui-kit-react" target="_blank">View on GitHub →</a>
             </div>
-            <div style="background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:28px;transition:all 0.3s ease;">
-                <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;">
-                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(59,130,246,0.06);color:#93c5fd;">TypeScript</span>
-                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">React</span>
-                    <span style="padding:2px 8px;border-radius:4px;font-size:0.65rem;font-weight:500;background:rgba(129,140,248,0.06);color:#a5b4fc;">Material UI</span>
+            <div class="project-card">
+                <div class="project-tags">
+                    <span class="project-tag">TypeScript</span>
+                    <span class="project-tag">React</span>
+                    <span class="project-tag">Material UI</span>
                 </div>
-                <h3 style="font-size:1rem;font-weight:600;margin-bottom:6px;">Admin Panel Framework</h3>
-                <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.6;">Contributed to an open-source framework for building data-driven admin dashboards and back-office interfaces on top of REST and GraphQL APIs.</p>
-                <div style="margin-top:12px;"><a href="https://github.com/yongtwin/react-admin" target="_blank" style="font-size:0.78rem;">View on GitHub →</a></div>
+                <h3>Admin Panel Framework</h3>
+                <p>Contributed to an open-source framework for building data-driven admin dashboards and back-office interfaces on top of REST and GraphQL APIs.</p>
+                <a class="project-link" href="https://github.com/yongtwin/react-admin" target="_blank">View on GitHub →</a>
             </div>
         </div>
     </div>
@@ -789,7 +1000,7 @@
                 </div>
             </div>
             <div class="skill-group">
-                <h4>Cloud & DevOps</h4>
+                <h4>Cloud &amp; DevOps</h4>
                 <div class="skill-pills">
                     <span class="skill-pill primary">Azure</span>
                     <span class="skill-pill">Azure DevOps</span>
@@ -829,9 +1040,22 @@
             <div class="section-label">Let's Talk</div>
             <h2>Ready to ship reliable software?</h2>
             <p>Tell me about your project — I'll reply within 24 hours with my thoughts on how to approach it, whether we're a good fit, and an estimated timeline. Available for projects in Singapore and Malaysia.</p>
-            <a href="mailto:yongtwin27@gmail.com?subject=Project%20Inquiry%20-%20yong.dev" class="cta-big">
-                Start the Conversation →
-            </a>
+
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/mnqelwjl" method="POST">
+                <div class="form-row" style="margin-bottom:12px;">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div style="margin-bottom:12px;">
+                    <input type="text" name="company" placeholder="Company (optional)">
+                </div>
+                <div style="margin-bottom:12px;">
+                    <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+                </div>
+                <button type="submit" class="cta-big">Start the Conversation →</button>
+                <div class="form-status" id="formStatus"></div>
+            </form>
+
             <div class="cta-sub">Based in Singapore. Available across Malaysia and Singapore.</div>
         </div>
     </div>
@@ -892,6 +1116,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
     const t = document.querySelector(this.getAttribute('href'));
     if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
 }));
+
+// Contact form via Formspree
+const form = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (res.ok) {
+            form.reset();
+            formStatus.className = 'form-status success';
+            formStatus.textContent = 'Message sent. I\'ll reply within 24 hours.';
+        } else {
+            throw new Error('Submission failed');
+        }
+    } catch (err) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Something went wrong. Please email me directly at yongtwin27@gmail.com';
+    }
+});
 </script>
 </body>
 </html>
