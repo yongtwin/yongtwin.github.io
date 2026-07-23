@@ -1041,22 +1041,10 @@
             <h2>Ready to ship reliable software?</h2>
             <p>Tell me about your project — I'll reply within 24 hours with my thoughts on how to approach it, whether we're a good fit, and an estimated timeline. Available for projects in Singapore and Malaysia.</p>
 
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/mnqelwjl" method="POST">
-                <div class="form-row" style="margin-bottom:12px;">
-                    <input type="text" name="name" placeholder="Name" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-                <div style="margin-bottom:12px;">
-                    <input type="text" name="company" placeholder="Company (optional)">
-                </div>
-                <div style="margin-bottom:12px;">
-                    <textarea name="message" placeholder="Tell me about your project..." required></textarea>
-                </div>
-                <button type="submit" class="cta-big">Start the Conversation →</button>
-                <div class="form-status" id="formStatus"></div>
-            </form>
-
-            <div class="cta-sub">Based in Singapore. Available across Malaysia and Singapore.</div>
+            <div class="contact-form" style="text-align:center;">
+                <a href="mailto:yongtwin27@gmail.com?subject=Project%20Inquiry%20-%20yong.dev&body=Hi%20Yong%20Twin,%0A%0AI%20came%20across%20your%20site%20and%20have%20a%20project%20in%20mind.%0A%0AProject%20summary:%0A%0ABudget%20/%20Timeline:%0A%0AThanks," class="cta-big">Start the Conversation →</a>
+                <div class="cta-sub">Based in Singapore. Available across Malaysia and Singapore.</div>
+            </div>
         </div>
     </div>
 </section>
@@ -1116,27 +1104,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
     const t = document.querySelector(this.getAttribute('href'));
     if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' }); }
 }));
-
-// Contact form via Formspree
-const form = document.getElementById('contactForm');
-const formStatus = document.getElementById('formStatus');
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    try {
-        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (res.ok) {
-            form.reset();
-            formStatus.className = 'form-status success';
-            formStatus.textContent = 'Message sent. I\'ll reply within 24 hours.';
-        } else {
-            throw new Error('Submission failed');
-        }
-    } catch (err) {
-        formStatus.className = 'form-status error';
-        formStatus.textContent = 'Something went wrong. Please email me directly at yongtwin27@gmail.com';
-    }
-});
 </script>
 </body>
 </html>
